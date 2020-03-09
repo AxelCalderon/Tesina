@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Manual Instruccional de Teoría de Líneas de Espera</title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  -->
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: dodgerblue;">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Instructional Manual</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="calculator.html">Calculator
+                <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="formula.html">Formulas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Header -->
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Queueing Theory Calculator</h1>
+            <p class="lead">Choose the queueing model.</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="#" role="button">M/M/C</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button">M/M/C/K</a>
+        </div>
+    </div>
+
+    <!-- form -->
+
+    <form name="form">
+        <div class="container">
+            <div class="form-group">
+                <div class="col-sm-1">
+                    <br>
+                    <input type="text" name="lamb" id="lamb" class="form-control" placeholder="">
+                </div>
+                <small id="helpId" class="text-muted">λ is mean arrival rate</small>
+                <div class="col-sm-1">
+                    <br>
+                    <input type="text" name="nu" id="nu" class="form-control" placeholder="">
+                </div>
+                <small id="helpId" class="text-muted">tab μ is expected service time</small>
+            </div>
+  
+     
+            <button type="button" class="btn btn-primary" onclick="Calc(form)">Calculate</button>
+            <br><br>
+
+
+    <!-- result -->
+
+            <div class="row justify-content-around">
+                <div class="card text-white bg-primary mb-2" style="max-width: 12rem;">
+                    <div class="card-header">L</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="resultL">0</h5>
+                        <p class="card-text">Average Customers in System</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-secondary mb-2" style="max-width: 12rem;">
+                    <div class="card-header">Lq</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="resultLq">0</h5>
+                        <p class="card-text">Average Customers in Queue</p>
+                    </div>
+                </div>
+        
+                <div class="card text-white bg-primary mb-2" style="max-width: 12rem;">
+                    <div class="card-header">W</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="resultW">0</h5>
+                        <p class="card-text">Average Time Spent in System</p>
+                    </div>
+                </div>
+                
+                <div class="card text-white bg-secondary mb-2" style="max-width: 12rem;">
+                    <div class="card-header">Wq</div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="resultWq">0</h5>
+                        <p class="card-text">Average Time Waiting in Line</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </form>  
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="jquery/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
