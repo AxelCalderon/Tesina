@@ -1,0 +1,6 @@
+1. Display MMC results 
+    Make it look better
+    Maybe add another type of calculator
+2. Work on Main Page
+3. Work on Formula pages
+4. About me leave it for the end
