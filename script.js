@@ -1,19 +1,13 @@
 function Calc(form) {
 
-    var c = 0; // number of servers
+    var c = parseInt(document.form.C.value,10); // number of servers
     var k = 0; // queue capacity
     
     var nu = parseFloat(document.form.nu.value, 10); // services
     var lamb = parseFloat(document.form.lamb.value, 10); // arrivals 
 
     var r = Math.round(r) // rounding number
-     
-    // rounding to 4 decimal points 
-    function rounding(n){
-        r = Math.round(n * 10000) / 10000
-        return r
-    }
-    
+        
     //calculates MM1 W
     function w() {
         res = rounding(-(1/(lamb - nu)))
@@ -29,9 +23,7 @@ function Calc(form) {
     //calculates MM1 l
     function l() {
         res = rounding(lamb/(nu - lamb))
-        console.log('test'+ res)
         return res;
-
     }
     
     //calculates MM1 Lq
@@ -57,4 +49,39 @@ function Calc(form) {
     document.getElementById("resultLq").innerHTML = lq();
     document.getElementById("resultW").innerHTML = w();
     document.getElementById("resultWq").innerHTML = wq();
+ 
+    probMMK(c)
+
+    // calculates MMK prob
+    function probMMK(c) {
+        n = 0
+        for(i = 0; i < c; i++) {
+            n += ((1/factorial(i)) * Math.pow((lamb/nu),i))
+            //console.log(n)
+        }
+        //console.log(n)
+
+        res = 1 / (n + (1/factorial(c)) * (Math.pow(lamb/nu,c)) * ((c * nu) / ((c * nu) - lamb)))
+        console.log('mmk prob= ' + res);
+    }
+
+    // rounding to 4 decimal points 
+    function rounding(n){
+        r = Math.round(n * 10000) / 10000
+        return r
+    }
+
+    // recursive factorial
+    function factorial (n) {
+        
+        if (n < 0)
+            return -1;
+
+        else if (n == 0)
+            return 1;
+
+        else {
+            return (n * factorial(n-1));
+        }
+    }
 }
