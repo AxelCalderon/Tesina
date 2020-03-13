@@ -1,4 +1,32 @@
+// buttons
+var calcButton = document.getElementById("calcButton");
+var mm1Button = document.getElementById("mm1Button");
+var mmcButton = document.getElementById("mmcButton");
+
+
+var formTab = document.getElementById("formTab");
+
+var CTile = document.getElementById("CTile");
+var CTileText = document.getElementById("CTileText");
+
+//listeners
+mm1Button.addEventListener("click", function(){ 
+    formTab.style.display = "block";
+    calcButton.style.display = "block";
+    CTile.style.display = "none";
+    CTileText.style.display = "none";
+});
+
+mmcButton.addEventListener("click", function(){
+    formTab.style.display = "block";
+    CTile.style.display = "block";
+    CTileText.style.display = "block";
+    calcButton.style.display = "block";
+});
+
 function Calc(form) {
+
+    document.getElementById("resultTab").style.display = "block";
 
     var c = parseInt(document.form.C.value,10); // number of servers
     var k = 0; // queue capacity
@@ -65,32 +93,37 @@ function Calc(form) {
         }
         //console.log(n)
 
-        res = 1 / (n + (1/factorial(c)) * (Math.pow(lamb/nu,c)) * ((c * nu) / ((c * nu) - lamb)))
+        res = 1 / (n + (1/factorial(c)) * (Math.pow(lamb/nu,c))
+         * ((c * nu) / ((c * nu) - lamb)))
         console.log('mmk prob= ' + res);
         return res;
     }
 
     // calculates MMK L
     function lMMK() {
-        res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1)) * Math.pow(c * nu - lamb, 2)) * probMMK(c) + lamb/nu
+        res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1))
+         * Math.pow(c * nu - lamb, 2)) * probMMK(c) + lamb/nu
         console.log('lmmk = '+ res)
     }
 
     // calculates MMK Lq
     function lqMMK() {
-        res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1)) * Math.pow(c * nu - lamb, 2)) * probMMK(c)
+        res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1))
+         * Math.pow(c * nu - lamb, 2)) * probMMK(c)
         console.log('lqmmk = '+ res)
     }
 
     // calculates MMK W
     function wMMK() {
-        res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1)) * Math.pow(c * nu - lamb, 2)) * probMMK(c) + 1/nu
+        res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1))
+         * Math.pow(c * nu - lamb, 2)) * probMMK(c) + 1/nu
         console.log('wmmk = '+ res)
     }
     
     // calculates MMK Wq
     function wqMMK() {
-        res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1)) * Math.pow(c * nu - lamb, 2)) * probMMK(c)
+        res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1))
+         * Math.pow(c * nu - lamb, 2)) * probMMK(c)
         console.log('wqmmk = '+ res)
     }
 

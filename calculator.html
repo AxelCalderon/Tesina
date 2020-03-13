@@ -52,41 +52,43 @@
             <h1 class="display-4">Queueing Theory Calculator</h1>
             <p class="lead">Choose the queueing model.</p>
             <hr class="my-4">
-            <a class="btn btn-primary btn-lg" href="#" role="button">M/M/1</a>
-            <a class="btn btn-primary btn-lg" href="#" role="button">M/M/C</a>
+            <a class="btn btn-primary btn-lg" href="#formTab" role="button" id="mm1Button">M/M/1</a>
+            <a class="btn btn-primary btn-lg" href="#formTab" role="button" id="mmcButton">M/M/C</a>
             <a class="btn btn-primary btn-lg" href="#" role="button">M/M/C/K</a>
         </div>
     </div>
 
-    <!-- form -->
+    <!------- form ----------->
 
     <form name="form">
         <div class="container">
+          <div id="formTab" style="display:none";>
             <div class="form-group">
-                <div class="col-sm-1">
+                <div id="lambTile" class="col-sm-2">
                     <br>
                     <input type="text" name="lamb" id="lamb" class="form-control" placeholder="">
                 </div>
-                <small id="helpId" class="text-muted">λ is mean arrival rate</small>
-                <div class="col-sm-1">
+                <small id="lambTileText" class="text-muted">λ is mean arrival rate</small>
+                <div id="nuTile" class="col-sm-2">
                     <br>
                     <input type="text" name="nu" id="nu" class="form-control" placeholder="">
                 </div>
-                <small id="helpId" class="text-muted">tab μ is expected service time</small>
-                <div class="col-sm-1">
+                <small id="NuTileText" class="text-muted">tab μ is expected service time</small>
+                <div id="CTile" class="col-sm-2">
                   <br>
                   <input type="text" name="C" id="C" class="form-control" placeholder="">
                 </div>
-                <small id="helpId" class="text-muted">C Number of servers in parallel </small>
+                <small id="CTileText" class="text-muted">C Number of servers in parallel </small>
             </div>
+        </div>  
   
-     
-            <button type="button" class="btn btn-primary" onclick="Calc(form)">Calculate</button>
+            <button type="button" class="btn btn-primary" id="calcButton" onclick="Calc(form)" style="display:none">Calculate</button>
             <br><br>
 
 
     <!-- result -->
 
+          <div id="resultTab" style="display:none">
             <div class="row justify-content-around">
                 <div class="card text-white bg-primary mb-2" style="max-width: 12rem;">
                     <div class="card-header">L</div>
@@ -119,6 +121,8 @@
                     </div>
                 </div>
             </div>
+          </div>
+
         </div>
   </form>  
 
