@@ -3,11 +3,17 @@ var calcButton = document.getElementById("calcButton");
 var mm1Button = document.getElementById("mm1Button");
 var mmcButton = document.getElementById("mmcButton");
 
-
 var formTab = document.getElementById("formTab");
 
 var CTile = document.getElementById("CTile");
 var CTileText = document.getElementById("CTileText");
+
+// result Variable
+
+var resultL = document.getElementById("resultL");
+var resultLq = document.getElementById("resultLq");
+var resultW = document.getElementById("resultW");
+var resultWq = document.getElementById("resultWq");
 
 //listeners
 mm1Button.addEventListener("click", function(){ 
@@ -73,10 +79,10 @@ function Calc(form) {
     prob()
     rho()
 
-    document.getElementById("resultL").innerHTML = l();
-    document.getElementById("resultLq").innerHTML = lq();
-    document.getElementById("resultW").innerHTML = w();
-    document.getElementById("resultWq").innerHTML = wq();
+    resultL.innerHTML = l();
+    resultLq.innerHTML = lq();
+    resultW.innerHTML = w();
+    resultWq.innerHTML = wq();
  
     probMMK(c)
     lMMK()
