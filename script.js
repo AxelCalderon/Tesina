@@ -51,6 +51,10 @@ function Calc(form) {
     document.getElementById("resultWq").innerHTML = wq();
  
     probMMK(c)
+    lMMK()
+    lqMMK()
+    wMMK()
+    wqMMK()
 
     // calculates MMK prob
     function probMMK(c) {
@@ -63,6 +67,31 @@ function Calc(form) {
 
         res = 1 / (n + (1/factorial(c)) * (Math.pow(lamb/nu,c)) * ((c * nu) / ((c * nu) - lamb)))
         console.log('mmk prob= ' + res);
+        return res;
+    }
+
+    // calculates MMK L
+    function lMMK() {
+        res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1)) * Math.pow(c * nu - lamb, 2)) * probMMK(c) + lamb/nu
+        console.log('lmmk = '+ res)
+    }
+
+    // calculates MMK Lq
+    function lqMMK() {
+        res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1)) * Math.pow(c * nu - lamb, 2)) * probMMK(c)
+        console.log('lqmmk = '+ res)
+    }
+
+    // calculates MMK W
+    function wMMK() {
+        res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1)) * Math.pow(c * nu - lamb, 2)) * probMMK(c) + 1/nu
+        console.log('wmmk = '+ res)
+    }
+    
+    // calculates MMK Wq
+    function wqMMK() {
+        res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1)) * Math.pow(c * nu - lamb, 2)) * probMMK(c)
+        console.log('wqmmk = '+ res)
     }
 
     // rounding to 4 decimal points 
