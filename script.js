@@ -41,30 +41,30 @@ function Calc(form) {
     var lamb = parseFloat(document.form.lamb.value, 10); // arrivals 
 
     var r = Math.round(r) // rounding number
-        
-    //calculates MM1 W
-    function w() {
-        res = rounding(-(1/(lamb - nu)))
-        return res;
-    }
     
-    //calculates MM1 Wq
-    function wq() {
-        res = rounding(lamb/(nu * (nu - lamb)))
-        return res;
+    var mm1 =  {
+        model: mm1,
+        w: rounding(-(1/(lamb - nu))),
+        wq: rounding(lamb/(nu * (nu - lamb))),
+        l: rounding(lamb/(nu - lamb)),
+        lq: rounding(((lamb^2)/(nu * (nu - lamb)))),
+        prob: res = 1 - (lamb/nu),
+        rho: lamb/nu
+    };
+
+    var mmk = {
+        model: mmk,
+        w: wMMK(),
+        wq: wqMMK(),
+        l: lMMK(),
+        lq: lqMMK(),
+        prob: probMMK(c),
     }
-    
-    //calculates MM1 l
-    function l() {
-        res = rounding(lamb/(nu - lamb))
-        return res;
-    }
-    
-    //calculates MM1 Lq
-    function lq() {
-        res = rounding(((lamb^2)/(nu * (nu - lamb))))
-        return res;
-    }
+
+    resultL.innerHTML = mm1.l;
+    resultLq.innerHTML = mm1.lq;
+    resultW.innerHTML = mm1.w;
+    resultWq.innerHTML = mm1.wq;
     
     function prob() {
         res = 1 - (lamb/nu)
@@ -79,17 +79,6 @@ function Calc(form) {
     prob()
     rho()
 
-    resultL.innerHTML = l();
-    resultLq.innerHTML = lq();
-    resultW.innerHTML = w();
-    resultWq.innerHTML = wq();
- 
-    probMMK(c)
-    lMMK()
-    lqMMK()
-    wMMK()
-    wqMMK()
-
     // calculates MMK prob
     function probMMK(c) {
         n = 0
@@ -101,7 +90,7 @@ function Calc(form) {
 
         res = 1 / (n + (1/factorial(c)) * (Math.pow(lamb/nu,c))
          * ((c * nu) / ((c * nu) - lamb)))
-        console.log('mmk prob= ' + res);
+        //console.log('mmk prob= ' + res);
         return res;
     }
 
