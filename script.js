@@ -79,6 +79,7 @@ function Calc(form) {
     prob()
     rho()
 
+    
     // calculates MMK prob
     function probMMK(c) {
         n = 0
