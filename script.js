@@ -14,6 +14,7 @@ var resultL = document.getElementById("resultL");
 var resultLq = document.getElementById("resultLq");
 var resultW = document.getElementById("resultW");
 var resultWq = document.getElementById("resultWq");
+var resultRho = document.getElementById("resultRho");
 
 //listeners
 mm1Button.addEventListener("click", function(){ 
@@ -45,7 +46,7 @@ function Calc(form) {
         w: rounding(-(1/(lamb - nu))),
         wq: rounding(lamb/(nu * (nu - lamb))),
         l: rounding(lamb/(nu - lamb)),
-        lq: rounding(((lamb^2)/(nu * (nu - lamb)))),
+        lq: rounding(((Math.pow(lamb,2))/(nu * (nu - lamb)))),
         prob: res = 1 - (lamb/nu),
         rho: lamb/nu
     };
@@ -72,6 +73,7 @@ function Calc(form) {
     resultLq.innerHTML = mm1.lq;
     resultW.innerHTML = mm1.w;
     resultWq.innerHTML = mm1.wq;
+    resultRho.innerHTML = mm1.rho;
     
     function prob() {
         res = 1 - (lamb/nu)
