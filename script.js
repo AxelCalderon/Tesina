@@ -36,10 +36,8 @@ function Calc(form) {
 
     var c = parseInt(document.form.C.value,10); // number of servers
     var k = 0; // queue capacity
-    
     var nu = parseFloat(document.form.nu.value, 10); // services
     var lamb = parseFloat(document.form.lamb.value, 10); // arrivals 
-
     var r = Math.round(r) // rounding number
     
     var mm1 =  {
@@ -59,6 +57,15 @@ function Calc(form) {
         l: lMMK(),
         lq: lqMMK(),
         prob: probMMK(c),
+    }
+
+    var md1 = {
+        model: md1,
+        w: wMD1(),
+        wq: wqMD1(),
+        l: lMD1(),
+        lq: lqMD1(),
+        prob: probMD1(),
     }
 
     resultL.innerHTML = mm1.l;
@@ -122,6 +129,54 @@ function Calc(form) {
          * Math.pow(c * nu - lamb, 2)) * probMMK(c)
         console.log('wqmmk = '+ res)
     }
+
+    // calculates MD1
+    function probMD1() {
+        res = 1 - (lamb/nu)
+    }
+
+    function lMD1() {
+        (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + lamb/nu
+    }
+
+    function lqMD1() {
+        (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)))
+    }
+
+    function wMD1() {
+        (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + 1/nu
+    }
+
+    function wqMD1() {
+        (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)))
+    }
+
+    // Time Converter
+    
+    /*
+     * @param {double} result in hours
+     * @param {int} option to convert
+     * returns {float} result in option
+     */
+    function unitConverter(hours, option) {
+        var perHours = [];
+
+        perHours[0] = hours;  ///per hours
+        perHours[1] = hours * 60; // per minutes
+        perHours[2] = hours * 3600; // per seconds
+        perHours[3] = Math.round(hours / 24 * 100) / 100; // per days
+
+        // TEST STUFF PLEASE REMOVE LATER
+        var i;
+        for(i=0; i < perHours.length;i++) {
+            console.log(perHours[i])
+        }
+
+        return console.log(perHours[option]);
+    }
+
+    // TEST STUFFF PLEASE REMOVE LATER
+    unitConverter(4.3,2);
 
     // rounding to 4 decimal points 
     function rounding(n){
