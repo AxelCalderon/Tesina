@@ -37,7 +37,7 @@
             <a class="nav-link" href="calculator.html">Calculator</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="formula.html">Formulas</a>
+            <a class="nav-link" href="formula.html">Lessons</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
@@ -46,6 +46,93 @@
       </div>
     </div>
   </nav>
+
+      <!-------- Header -------->
+
+      <div class="jumbotron" style="padding-bottom: 10px;">
+        <div class="container" >
+            <h1 class="display-4">Queueing Theory Lessons</h1>
+            <p class="lead" >Choose a lesson</p>
+        </div>
+    </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Queueing Models</a>
+          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Kendall's Notation</a>
+          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">M/M/1 Queue</a>
+          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">M/M/C Queue</a>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <p>The basic queueing model, it's just a queue line and server. A waiting line queue where the customers form a waiting line. 
+              The order is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
+              Example:<br>
+            <ul>
+              <li> Service time = 5 minutes, a customer arrives every 10 minutes. <br>
+                <ul>
+                    <li>No queue will ever be formed</li>
+                </ul>
+              </li>
+              <li> Service time = 10 minutes, a customer arrives every 5 minutes. <br>
+                <ul>
+                  <li>Queue will grow forever. </li>
+                </ul>
+              </li>
+            </ul>
+            <p>Queueing models is characterized by:</p>
+              <ul>
+                <li>The arrival process of customers.</li>
+                  <ul>
+                    <li>Usually we assume that the interarrival times are independent and have a common distribution. 
+                      In many practical situations customers arrive according to a Poisson stream ( exponential interarrival times). 
+                      But there are other cases where customers may arrive one by one or in batches.&nbsp;</li>
+                  </ul>
+                <li>Service time:</li>
+                  <ul>
+                    <li>Usually we assume that the service times are independent and identically distributed and that they are independent of the interarrival times.&nbsp;</li>
+                  </ul>
+                <li>The service discipline</li>
+                  <ul>
+                    <li>Customers can be served one by one or in batches. There are many possibilities for the order in which they enter service:</li>
+                      <ul>
+                        <li>FIFO - First In First Out: who comes earlier leaves earlier</li>
+                        <li>LIFO - Last Come First Out: who comes later leaves earlier</li>
+                        <li>RS - Random Service: the customer is selected randomly</li>
+                        <li>Priority</li>
+                      </ul>
+                  </ul>
+                <li>Service capacity</li>
+                  <ul>
+                    <li>There may be a single server or a group of servers helping the customers</li>
+                  </ul>
+                <li>The waiting room</li>
+                  <ul>
+                    <li>There can be limitations with respect to the number of customers in the system. </li>
+                  </ul>
+              </ul>
+            <p> Stability Condition:</p>
+            <p>A queue is stable, when it does not grow to become infinite over time. The single-server queue is stable if on the average,
+               the service time is less than the inter-arrival time.</p>
+            <p style="text-align: center;"> Mean service time < mean inter-arrival time</p>
+            <p>Service times and inter-arrival times are rarely constant. From read data we can construct a histogram of the service time 
+              and the inter-arrival time. If read data is not available, then we assume a theoretical distribution. A commonly used theoretical 
+              distribution in queueing theory is the exponential distribution.</p>
+
+
+          </div>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="jquery/jquery.min.js"></script>
