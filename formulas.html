@@ -54,7 +54,7 @@
             <h1 class="display-4">Queueing Theory Lessons</h1>
             <p class="lead" >Choose a lesson</p>
         </div>
-    </div>
+      </div>
 
   <div class="container">
     <div class="row">
@@ -71,8 +71,8 @@
           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
             <p>The basic queueing model it's just a queue line and server. Waiting line queue is where the customers form a waiting line. 
               The order for a line queue is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
-            <p> ####insert image here#########</p>
-              Example:<br>
+            <img src="/images/Untitled-2.png" class="container">
+            Example:
             <ul>
               <li> Service time = 5 minutes, a customer arrives every 10 minutes. <br>
                 <ul>
@@ -114,20 +114,30 @@
             <title2>Queue/Service Discipline</title2>
             <br><br>
             <p>The lenght of a queue line can be either limited or unlimited. There are many possibilities for the order in which they enter service:</p>
-            <ul>
-              <li>FIFO - First In First Out: who comes earlier leaves earlier</li>
-              <li>LIFO - Last Come First Out: who comes later leaves earlier</li>
-              <li>RS - Random Service: the customer is selected randomly</li>
-              <li>Priority</li>
-            </ul>
-            <p> Stability Condition:</p>
+              <ul>
+                <li>FIFO - First In First Out: who comes earlier leaves earlier</li>
+                <li>LIFO - Last Come First Out: who comes later leaves earlier</li>
+                <li>RS - Random Service: the customer is selected randomly</li>
+                <li>Priority -  Item or customer is given priority in the queue</li>
+              </ul>
+            <title2>Service Characteristic</title2>
+            <br><br>
+            <p>Service systems can be classified in terms of their number of channels (servers) and number of phases.</p>
+              <ul>
+                <li><b>Single-channel</b> queueing system, where you have one line and a single server.</li>
+                <li><b>Multiple-channel</b> queueing system, where each customer or item is waiting in one common line but with several servers</li>
+                <li><b>Single-phase</b>, the customer or item receives service from only one station and then exits the system.</li>
+                <li><b>Multiple-phase</b>, the customer or item receives service from several stations before exiting the system.</li>
+              </ul> 
+            <p><i>Service pattern</i> are pretty similar to arrival patterns in that they may be either constant or random. Service times and inter-arrival
+              times are rarely constant. From read data we can construct a histogram of the service time 
+              and the inter-arrival time. If read data is not available, then we assume a theoretical distribution. A commonly used theoretical 
+              distribution in queueing theory is the exponential distribution. </p>
+            <title2> Stability Condition:</title2>
+            <br><br>
             <p>A queue is stable, when it does not grow to become infinite over time. The single-server queue is stable if on the average,
                the service time is less than the inter-arrival time.</p>
             <p style="text-align: center;"> Mean service time < mean inter-arrival time</p>
-            <p>Service times and inter-arrival times are rarely constant. From read data we can construct a histogram of the service time 
-              and the inter-arrival time. If read data is not available, then we assume a theoretical distribution. A commonly used theoretical 
-              distribution in queueing theory is the exponential distribution.</p>
-
 
           </div>
           <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
@@ -202,7 +212,13 @@
     </div>
   </div>
 
+  <!-- footer -->
 
+  <footer class="footer" style="background-color:dodgerblue">
+    <div class="container">
+      <span class="text-muted">Place sticky footer content here.</span>
+    </div>
+  </footer>
   <!-- Bootstrap core JavaScript -->
   <script src="jquery/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
