@@ -12,9 +12,9 @@
 <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- <link href="css/normalize.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-  -->
+    <!-- <link href="css/normalize.css" rel="stylesheet"> -->
+  <link href="style.css" rel="stylesheet">
+  
 </head>
 
 
@@ -69,8 +69,9 @@
       <div class="col-9">
         <div class="tab-content" id="v-pills-tabContent">
           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-            <p>The basic queueing model, it's just a queue line and server. A waiting line queue where the customers form a waiting line. 
-              The order is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
+            <p>The basic queueing model it's just a queue line and server. Waiting line queue is where the customers form a waiting line. 
+              The order for a line queue is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
+            <p> ####insert image here#########</p>
               Example:<br>
             <ul>
               <li> Service time = 5 minutes, a customer arrives every 10 minutes. <br>
@@ -84,37 +85,41 @@
                 </ul>
               </li>
             </ul>
-            <p>Queueing models is characterized by:</p>
+            <p><title1>Characteristic of Queueing Systems</title1></p>
               <ul>
-                <li>The arrival process of customers.</li>
+                <li>Arrival or imputs to the system</li>
                   <ul>
-                    <li>Usually we assume that the interarrival times are independent and have a common distribution. 
-                      In many practical situations customers arrive according to a Poisson stream ( exponential interarrival times). 
-                      But there are other cases where customers may arrive one by one or in batches.&nbsp;</li>
+                    <li>Population size, behavior, and a statistical distribution.</li>
                   </ul>
-                <li>Service time:</li>
+                <li>Queue/Service Discipline</li>
                   <ul>
-                    <li>Usually we assume that the service times are independent and identically distributed and that they are independent of the interarrival times.&nbsp;</li>
+                    <li>Capacitiy and behavior of the people or items in it.</li>
                   </ul>
-                <li>The service discipline</li>
+                <li>Service facility</li>
                   <ul>
-                    <li>Customers can be served one by one or in batches. There are many possibilities for the order in which they enter service:</li>
-                      <ul>
-                        <li>FIFO - First In First Out: who comes earlier leaves earlier</li>
-                        <li>LIFO - Last Come First Out: who comes later leaves earlier</li>
-                        <li>RS - Random Service: the customer is selected randomly</li>
-                        <li>Priority</li>
-                      </ul>
-                  </ul>
-                <li>Service capacity</li>
-                  <ul>
-                    <li>There may be a single server or a group of servers helping the customers</li>
-                  </ul>
-                <li>The waiting room</li>
-                  <ul>
-                    <li>There can be limitations with respect to the number of customers in the system. </li>
+                    <li>Design and the statistical distribution of the service time</li>
                   </ul>
               </ul>
+            <title2>Arrival Characteristic</title2>
+            <br><br>
+            <p><i>Population sizes</i> are considered either unlimited(infinite) or limited (finite). When the number of customers or arrivals 
+              on hand at any given moment is just a small portion of all potential arrivals, the population is considered infinite.
+              Most queueing models assume such an infinite arrival population.
+            </p>
+            <p>For the <i>arrival process</i> of costumers usually we assume that the interarrival times are independent 
+              and have a common distribution. In many practical situations customers arrive according to a Poisson 
+              stream (exponential interarrival times). But there are other cases where customers may arrive one by one or in batches. 
+            </p>
+
+            <title2>Queue/Service Discipline</title2>
+            <br><br>
+            <p>The lenght of a queue line can be either limited or unlimited. There are many possibilities for the order in which they enter service:</p>
+            <ul>
+              <li>FIFO - First In First Out: who comes earlier leaves earlier</li>
+              <li>LIFO - Last Come First Out: who comes later leaves earlier</li>
+              <li>RS - Random Service: the customer is selected randomly</li>
+              <li>Priority</li>
+            </ul>
             <p> Stability Condition:</p>
             <p>A queue is stable, when it does not grow to become infinite over time. The single-server queue is stable if on the average,
                the service time is less than the inter-arrival time.</p>
@@ -125,9 +130,73 @@
 
 
           </div>
-          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <p>Kendall introduced a shorthand notation to characterize a range of these queueing models:</p>
+            <p><em>A / B / c / K / n / D,</em></p>
+            <p>Where</p>
+            <p>A: interarrival time distribution</p>
+            <p>B: service time distribution</p>
+            <p>c: number of servers</p>
+            <p>K: capacity of the system</p>
+            <p>N: population size</p>
+            <p>D: service discipline</p>
+            <p>When describing the distribution we use: G for a general distribution, M for exponential distribution
+               ( M stands for Memoryless or Markovain ) and D for deterministic times.&nbsp;</p>
+            <p>In the basic model, customers arrive one by one and they are always allowed to enter the system,
+               there is always room, there are no priority rules and customers are served in order of arrival.&nbsp;</p>  
+          </div>
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <p>M/M/1 queueing system is the simplest queueing system where the requests arrive according 
+              to a Poisson process with rate &lambda;, that is the interarrival times are independent, 
+              exponentially distributed random variables with parameter &lambda;. The service times are 
+              also assumed to be independent and exponentially distributed with parameter &mu;.</p>
+            <p>#####Image goes here#######</p>
+            <p>M/M/1 queueing system means there is one queue per server. This doesn&rsquo;t mean you can't
+               have multiple servers. Which would mean if there are more servers, each of these are computed
+                using M/M/1 queues. Example: 5 servers with 5 queues would be denoted as 5(M/M/1).</p>
+            <p>&lambda; = describes the number of arrivals per unit time</p>
+            <p>&mu; = describes the service rate per unit time&nbsp;</p>
+            <p>#####Image goes here#######</p>
+            <p>Output:</p>
+            <p>Pn = probability that there are n customers in the system</p>
+            <p>&rho; = Is known as the <em>traffic intensity </em>or <em>server utilization</em></p>
+            <p>L = average number of customers in the system (in waiting line and being served)</p>
+            <p>Lq = average number of customers in waiting line for service</p>
+            <p>W = average time a customer spends in the system (in waiting line and being served)</p>
+            <p>Wq = average time a customer spends waiting in line waiting for service.</p>
+          </div>
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <p>M/M/c is when we have a single queue with more than 1 parallel server. M/M/c is pretty similar to M/M/1
+               and it's important to realize the difference between them. In M/M/c queueing system we have k parallel 
+               servers with a single queue, while in M/M/1 you can have multiple servers but for each server you need 
+               to have a queue, for those you want to use the notation c*M/M/1. </p>
+            <p>#####Image goes here#######</p>
+            <p>For this type of queue, we require a &rho; &lt; 1 for it to be stable. To get &rho; on this system we use
+               &rho; = &lambda;/(c&mu;). &rho; represents the average proportion of time which each of the servers is occupied.&nbsp;</p>
+            <p>&lambda; = describes the number of arrivals per unit time</p>
+            <p>&mu; = describes the service rate per unit time&nbsp;</p>
+            <p>c = Number of servers in the queueing System</p>
+            <p>#####Image goes here#######</p>
+            <p>Output:</p>
+            <p>Pn = probability that there are n customers in the system</p>
+            <p>&rho; = Is known as the <em>traffic intensity </em>or <em>server utilization</em></p>
+            <p>L = average number of customers in the system (in waiting line and being served)</p>
+            <p>Lq = average number of customers in waiting line for service</p>
+            <p>W = average time a customer spends in the system (in waiting line and being served)</p>
+            <p>Wq = average time a customer spends waiting in line waiting for service.</p>
+            <p>Formulas (Analysis of the system):</p>
+            <p><em>Number of customers in the system</em></p>
+            <p>If &rho; &lt; 1 the system can be analysed, if &rho; &gt; 1 the queue will keep growing to infinity and can&rsquo;t be calculated.&nbsp;</p>
+            <p>##formular here##</p>
+            <p>Where Pn is the probability that there are customers in the system. The average number of customers in the system (in service and in queue) is given by:</p>
+            <p>##formula here##</p>
+            <p>To calculate the average number of customers waiting in queue, remove the server utilization from the formula to get:</p>
+            <p>##formula here##</p>
+            <p>Time in system</p>
+            <p>##formula here##</p>
+            <p>Examples:</p>
+            <p>##examples here##</p>
+          </div>
         </div>
       </div>
     </div>
@@ -137,6 +206,8 @@
   <!-- Bootstrap core JavaScript -->
   <script src="jquery/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
   
 </body>
 
