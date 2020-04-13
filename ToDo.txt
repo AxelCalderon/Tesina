@@ -1,7 +1,9 @@
 1. Display MMC results 
     Make it look better
-    Maybe add another type of calculator
+    Make it show results for the other two queue
 2. Work on Main Page
 3. Work on Formula pages
-    tabs on the left side for lessons. 
-5. About me leave it for the end
+    Add example table to first tab
+    fix other tabs
+    MAYBE ADD OTHER TABS
+4. About me leave it for the end
