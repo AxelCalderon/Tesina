@@ -1,9 +1,10 @@
-1. Display MMC results 
-    Make it look better
-    Make it show results for the other two queue
-2. Work on Main Page
-3. Work on Formula pages
+1. Add footer to other pages and fix
+4. Work on Formula pages
     Add example table to first tab
     fix other tabs
     MAYBE ADD OTHER TABS
+2. Display MMC results 
+    Make it look better
+    Make it show results for the other two queue
+3. Work on Main Page
 4. About me leave it for the end
