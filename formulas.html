@@ -72,6 +72,11 @@
             <p>The basic queueing model it's just a queue line and server. Waiting line queue is where the customers form a waiting line. 
               The order for a line queue is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
             <img src="/images/Untitled-2.png" class="container">
+            <title2> Stability Condition:</title2>
+            <br>
+            <p>A queue is stable, when it does not grow to become infinite over time. The single-server queue is stable if on the average,
+               the service time is less than the inter-arrival time.</p>
+            <p style="text-align: center;"> Mean service time < mean inter-arrival time</p>
             Example:
             <ul>
               <li> Service time = 5 minutes, a customer arrives every 10 minutes. <br>
@@ -133,23 +138,29 @@
               times are rarely constant. From read data we can construct a histogram of the service time 
               and the inter-arrival time. If read data is not available, then we assume a theoretical distribution. A commonly used theoretical 
               distribution in queueing theory is the exponential distribution. </p>
-            <title2> Stability Condition:</title2>
-            <br><br>
-            <p>A queue is stable, when it does not grow to become infinite over time. The single-server queue is stable if on the average,
-               the service time is less than the inter-arrival time.</p>
-            <p style="text-align: center;"> Mean service time < mean inter-arrival time</p>
+            <p class="imageLabel">Single Channel, Single Phase</p>
+            <img src="/images/singleServerSinglePhase-01.png" class="container">
+            <p style="text-align: center;">Ex: Doctor's Office</p><br>
+            <p class="imageLabel">Multiple Channel, Single Phase</p>
+            <img src="/images/MultiServerSinglePhase-03.png" class="container">
+            <p style="text-align: center;">Ex: Post Office or Bank</p><br>
+            <p class="imageLabel">Single Channel, Multiple Phase</p>
+            <img src="/images/SingleServerMultiPhase-02.png" class="container"></b>
+            <p style="text-align: center;">Ex: Drive Through </p><br>
+
+<!---------- Kendall tab --------------->
 
           </div>
           <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
             <p>Kendall introduced a shorthand notation to characterize a range of these queueing models:</p>
             <p><em>A / B / c / K / n / D,</em></p>
             <p>Where</p>
-            <p>A: interarrival time distribution</p>
-            <p>B: service time distribution</p>
-            <p>c: number of servers</p>
-            <p>K: capacity of the system</p>
-            <p>N: population size</p>
-            <p>D: service discipline</p>
+            <p><em>A</em> = interarrival time distribution</p>
+            <p><em>B</em> = service time distribution</p>
+            <p><em>c</em> = number of servers</p>
+            <p><em>K</em> = capacity of the system</p>
+            <p><em>n</em> = population size</p>
+            <p><em>D</em> = service discipline</p>
             <p>When describing the distribution we use: G for a general distribution, M for exponential distribution
                ( M stands for Memoryless or Markovain ) and D for deterministic times.&nbsp;</p>
             <p>In the basic model, customers arrive one by one and they are always allowed to enter the system,
@@ -174,6 +185,52 @@
             <p>Lq = average number of customers in waiting line for service</p>
             <p>W = average time a customer spends in the system (in waiting line and being served)</p>
             <p>Wq = average time a customer spends waiting in line waiting for service.</p>
+
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Collapsible Group Item #1
+                    </button>
+                  </h5>
+                </div>
+            
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Collapsible Group Item #2
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Collapsible Group Item #3
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
             <p>M/M/c is when we have a single queue with more than 1 parallel server. M/M/c is pretty similar to M/M/1
@@ -212,12 +269,6 @@
     </div>
   </div>
 
-  <!-- footer -->
-  <footer class="footer" style="background-color:dodgerblue">
-    <div class="container">
-      <span class="text-muted">Place sticky footer content here.</span>
-    </div>
-  </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="jquery/jquery.min.js"></script>
