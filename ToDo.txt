@@ -1,4 +1,4 @@
-1. Add footer to other pages and fix
+1. REMOVE FOOTERS; Add footer to other pages and fix
 4. Work on Formula pages
     Add example table to first tab
     fix other tabs

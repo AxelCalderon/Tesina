@@ -67,13 +67,17 @@
         </div>
       </div>
       <div class="col-9">
+
+
         <div class="tab-content" id="v-pills-tabContent">
-          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+        <!---- Queueing Model tab -------->
+
+          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-queueing-tab">
             <p>The basic queueing model it's just a queue line and server. Waiting line queue is where the customers form a waiting line. 
               The order for a line queue is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
-            <img src="/images/Untitled-2.png" class="container">
-            <title2> Stability Condition:</title2>
-            <br>
+            <img src="/images/Untitled-2.png" class="container"><br><br>
+            <p class="title2"> Stability Condition:</p>
             <p>A queue is stable, when it does not grow to become infinite over time. The single-server queue is stable if on the average,
                the service time is less than the inter-arrival time.</p>
             <p style="text-align: center;"> Mean service time < mean inter-arrival time</p>
@@ -90,7 +94,7 @@
                 </ul>
               </li>
             </ul>
-            <p><title1>Characteristic of Queueing Systems</title1></p>
+            <p class="title1">Characteristic of Queueing Systems</p>
               <ul>
                 <li>Arrival or imputs to the system</li>
                   <ul>
@@ -105,8 +109,7 @@
                     <li>Design and the statistical distribution of the service time</li>
                   </ul>
               </ul>
-            <title2>Arrival Characteristic</title2>
-            <br><br>
+            <p class="title2">Arrival Characteristic</p>
             <p><i>Population sizes</i> are considered either unlimited(infinite) or limited (finite). When the number of customers or arrivals 
               on hand at any given moment is just a small portion of all potential arrivals, the population is considered infinite.
               Most queueing models assume such an infinite arrival population.
@@ -116,8 +119,7 @@
               stream (exponential interarrival times). But there are other cases where customers may arrive one by one or in batches. 
             </p>
 
-            <title2>Queue/Service Discipline</title2>
-            <br><br>
+            <p class="title2">Queue/Service Discipline</p>
             <p>The lenght of a queue line can be either limited or unlimited. There are many possibilities for the order in which they enter service:</p>
               <ul>
                 <li>FIFO - First In First Out: who comes earlier leaves earlier</li>
@@ -125,8 +127,7 @@
                 <li>RS - Random Service: the customer is selected randomly</li>
                 <li>Priority -  Item or customer is given priority in the queue</li>
               </ul>
-            <title2>Service Characteristic</title2>
-            <br><br>
+            <p class="title2">Service Characteristic</p>
             <p>Service systems can be classified in terms of their number of channels (servers) and number of phases.</p>
               <ul>
                 <li><b>Single-channel</b> queueing system, where you have one line and a single server.</li>
@@ -147,11 +148,10 @@
             <p class="imageLabel">Single Channel, Multiple Phase</p>
             <img src="/images/SingleServerMultiPhase-02.png" class="container"></b>
             <p style="text-align: center;">Ex: Drive Through </p><br>
-
-<!---------- Kendall tab --------------->
-
           </div>
-          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <!---------- Kendall tab --------------->
+
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-Kendall-tab">
             <p>Kendall introduced a shorthand notation to characterize a range of these queueing models:</p>
             <p><em>A / B / c / K / n / D,</em></p>
             <p>Where</p>
@@ -166,25 +166,33 @@
             <p>In the basic model, customers arrive one by one and they are always allowed to enter the system,
                there is always room, there are no priority rules and customers are served in order of arrival.&nbsp;</p>  
           </div>
-          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+
+        <!----- MM1 tab -------------->  
+
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-MM1-tab">
             <p>M/M/1 queueing system is the simplest queueing system where the requests arrive according 
               to a Poisson process with rate &lambda;, that is the interarrival times are independent, 
               exponentially distributed random variables with parameter &lambda;. The service times are 
               also assumed to be independent and exponentially distributed with parameter &mu;.</p>
-            <p>#####Image goes here#######</p>
-            <p>M/M/1 queueing system means there is one queue per server. This doesn&rsquo;t mean you can't
-               have multiple servers. Which would mean if there are more servers, each of these are computed
-                using M/M/1 queues. Example: 5 servers with 5 queues would be denoted as 5(M/M/1).</p>
-            <p>&lambda; = describes the number of arrivals per unit time</p>
-            <p>&mu; = describes the service rate per unit time&nbsp;</p>
-            <p>#####Image goes here#######</p>
-            <p>Output:</p>
-            <p>Pn = probability that there are n customers in the system</p>
+            <img src="images/singleServerSinglePhase-01.png" class="container"><br>
+            <p>M/M/1 queueing system means there is one queue per server. This doesn't mean you can't
+              have multiple servers. Which would mean if there are more servers, each of these are computed
+              using M/M/1 queues. <br>Example: 3 servers with 3 queues would be denoted as 3(M/M/1).</p>
+            <img src="images/3MM1-03.png"  width="450" height="180" class="center"><br>
+            <p class="title1">Analysis of the System</p>
+            <p class="title2">Input:</p>
+            <p>&lambda; = mean number of arrivals per time period</p>
+            <p>&mu; = mean number of people or items served per time period</p>
+            <p class="title2">Output:</p>
+            <p>P<sub>n</sub> = probability that there are n customers in the system</p>
             <p>&rho; = Is known as the <em>traffic intensity </em>or <em>server utilization</em></p>
-            <p>L = average number of customers in the system (in waiting line and being served)</p>
+            <p>L = average number of customers in the system (waiting line and being served)</p>
             <p>Lq = average number of customers in waiting line for service</p>
-            <p>W = average time a customer spends in the system (in waiting line and being served)</p>
+            <p>W = average time a customer spends in the system (waiting line and being served)</p>
             <p>Wq = average time a customer spends waiting in line waiting for service.</p>
+            
+
+            <img src="images/MM1More-02.png" class="container">
 
             <div class="accordion" id="accordionExample">
               <div class="card">
