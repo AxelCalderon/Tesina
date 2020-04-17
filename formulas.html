@@ -170,9 +170,9 @@
         <!----- MM1 tab -------------->  
 
           <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-MM1-tab">
-            <p>M/M/1 queueing system is the simplest queueing system where the requests arrive according 
-              to a Poisson process with rate &lambda;, that is the interarrival times are independent, 
-              exponentially distributed random variables with parameter &lambda;. The service times are 
+            <p>M/M/1 queueing system is the simplest queueing system, a single channel waiting line, where arrivals form a single line 
+              to be served by a single station. The requests arrive according to a Poisson process with rate &lambda;, 
+              that it's the interarrival times are independent, exponentially distributed random variables with parameter &lambda;. The service times are 
               also assumed to be independent and exponentially distributed with parameter &mu;.</p>
             <img src="images/singleServerSinglePhase-01.png" class="container"><br>
             <p>M/M/1 queueing system means there is one queue per server. This doesn't mean you can't
@@ -185,28 +185,75 @@
             <p>&mu; = mean number of people or items served per time period</p>
             <p class="title2">Output:</p>
             <p>P<sub>n</sub> = probability that there are n customers in the system</p>
-            <p>&rho; = Is known as the <em>traffic intensity </em>or <em>server utilization</em></p>
+            <p>\[P_n = (1- {&lambda;\over &mu;})({&lambda;\over &mu;})^2\]</p>
+            <p>P<sub>0</sub> = probability that there are 0 customers in the system(the service unit is idle)</p>
+            <p>\[P_0 = 1- {&lambda;\over &mu;}\]</p>
+            <p>&rho; = percentage of time a server is being utilized by a customer, also known as known as <em>server utilization</em>.</p>
+            <p>\[&rho; = {&lambda;\over &mu;}\]</p>
             <p>L = average number of customers in the system (waiting line and being served)</p>
-            <p>Lq = average number of customers in waiting line for service</p>
+            <p>\[L = {&lambda;\over {&mu; - &lambda;}}\]</p>
+            <p>L<sub>q</sub> = average number of customers in waiting line for service</p>
+            <p>\[L_q = {&lambda;^2\over{({&mu;( {&mu; - &lambda;}}}))}\]</p>
             <p>W = average time a customer spends in the system (waiting line and being served)</p>
-            <p>Wq = average time a customer spends waiting in line waiting for service.</p>
-            
-
+            <p>\[W = {1\over {&mu; - &lambda;}}\]</p>
+            <p>W<sub>q</sub> = average time a customer spends waiting in line waiting for service.</p>
+            <p>\[W_q = {&lambda;\over{({&mu;( {&mu; - &lambda;}}}))}\]</p>
             <img src="images/MM1More-02.png" class="container">
+            <p>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#ExampleMM1" aria-expanded="false" aria-controls="collapseExample">
+                Example #1
+              </button>
+            </p>
 
+            <!--------- example MM1 ---------->
+              <div class="collapse" id="ExampleMM1">
+                <div class="card card-body">
+                  <p>John Doe, the mechanic at Doe&rsquo;s Oil Change Shop, is able to change the oil of a vehicle
+                    at an average rate of 3 per hour (1 every 20min), according to exponential distribution. 
+                    Customers looking for this service arrive at an average of 2 per hour, following a Poisson distribution. 
+                    They are served FIFO basis and come from a very large population (almost infinite).</p>
+                  <p>From this description, we are able to obtain the operating characteristics of Doe&rsquo;s Oil Change Shop&rsquo;s queueing system:</p>
+                    <p class="examples">
+                      <b>&lambda;</b> = 2 cars arriving per hour</br>
+                      <b>&mu;</b> = 3 cars serviced per hour</br>
+                      \[P_0 = 1- {&lambda;\over &mu;} = 1- {2\over 3} = {1\over 3}\]
+                      <b>P<sub>0</sub></b> = .33 probability there are 0 cars in the system. </br>
+                      \[&rho; = {&lambda;\over &mu;} = {2\over 3} \]
+                      <b>&rho;</b> = 66.6% of the time the mechanic is busy </br>
+                      \[L = {&lambda;\over {&mu; - &lambda;}} = {2\over {3 - 2}} = 2\]
+                      <b>L</b> = 2 cars in the system, on average </br>
+                      \[L_q = {&lambda;^2\over{({&mu;( {&mu; - &lambda;}}}))} = {2^2\over{({3( {3 - 2}}}))} = {4\over{{3}}} \]
+                      <b>L<sub>q</sub></b> = 1.33 cars waiting in line, on average
+                      \[W = {1\over {&mu; - &lambda;}} = {1\over {3 - 2}} = 1\]
+                      <b>W</b> = 1 hour average waiting time in the system
+                      \[W_q = {&lambda;\over{({&mu;( {&mu; - &lambda;}}}))} = {2\over{({3( {3 - 2}}}))} = {2\over{3}}\]
+                      <b>W<sub>q</sub></b> = 40 minute average waiting time per car
+                    </p>
+                </div>
+              </div> 
+              <br>
+
+            <!------ practice ------>
+            <p class="title2">Practice</p>
             <div class="accordion" id="accordionExample">
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Collapsible Group Item #1
+                      Exercise #1
                     </button>
                   </h5>
                 </div>
             
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                   <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    Customers arrive at Paul Harrold's Styling Shop at a rate of 3 per hour, diotributed in a Possion fashion. Paul can perform haircuts at a rate of 5 per hour, distributed exponentially.<br>
+                    a) Find the average number of customers waiting for haircuts. <br>
+                    <input type="text" class="form-control col-sm-1" id="exercise1MM1">
+                    b) Find the average number of customers in the shop. <br>
+                    c) Find the average time a customer waits until it is his or her turn. <br>
+                    d) Find the average time a customer spends in the shop. <br>
+                    e) Find the percentage of time that Paul is busy. <br>
                   </div>
                 </div>
               </div>

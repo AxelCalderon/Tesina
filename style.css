@@ -8,6 +8,11 @@ p.title2 {
     color: navy 
 }
 
+p.examples {
+    text-align-last: center;
+}
+
+
 p.imageLabel {
     font-size: 20px;
     font-weight: bold;
