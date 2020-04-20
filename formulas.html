@@ -246,15 +246,25 @@
                 </div>
             
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                  <div class="card-body">
-                    Customers arrive at Paul Harrold's Styling Shop at a rate of 3 per hour, diotributed in a Possion fashion. Paul can perform haircuts at a rate of 5 per hour, distributed exponentially.<br>
-                    a) Find the average number of customers waiting for haircuts. <br>
-                    <input type="text" class="form-control col-sm-1" id="exercise1MM1">
-                    b) Find the average number of customers in the shop. <br>
-                    c) Find the average time a customer waits until it is his or her turn. <br>
-                    d) Find the average time a customer spends in the shop. <br>
-                    e) Find the percentage of time that Paul is busy. <br>
-                  </div>
+                  
+                    <div class="card-body">
+                      <form name="form">
+                        Customers arrive at Paul Harrold's Styling Shop at a rate of 3 per hour, distributed in a Possion fashion.
+                        Paul can perform haircuts at a rate of 5 per hour, distributed exponentially.<br><br>
+                        a) Find the average number of customers waiting for haircuts. <br>
+                        <input type="text" class="form-control col-sm-1" id="MM1ex00" required>
+                        b) Find the average number of customers in the shop. <br>
+                        <input type="text" class="form-control col-sm-1" id="MM1ex01" required>
+                        c) Find the average time (in hours) a customer waits until it is his or her turn. <br>
+                        <input type="text" class="form-control col-sm-1" id="MM1ex02" required>
+                        d) Find the average time (in hours) a customer spends in the shop. <br>
+                        <input type="text" class="form-control col-sm-1" id="MM1ex03" required>
+                        e) Find the percentage of time that Paul is busy. <br>
+                        <input type="text" class="form-control col-sm-1" id="MM1ex04" required></br>
+                        <button type="button" class="btn btn-primary" id="CompleteMM1" onclick="MM1ex0(form)" style="display:block">Check</button>
+                      </form>
+                    </div>
+                  </form>
                 </div>
               </div>
               <div class="card">
@@ -328,6 +338,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="jquery/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
   

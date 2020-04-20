@@ -1,4 +1,4 @@
-// buttons
+// calculator buttons
 var calcButton = document.getElementById("calcButton");
 var mm1Button = document.getElementById("mm1Button");
 var mmcButton = document.getElementById("mmcButton");
@@ -7,6 +7,9 @@ var formTab = document.getElementById("formTab");
 
 var CTile = document.getElementById("CTile");
 var CTileText = document.getElementById("CTileText");
+
+// Lesson buttons
+
 
 // result Variable
 
@@ -30,6 +33,22 @@ mmcButton.addEventListener("click", function(){
     CTileText.style.display = "block";
     calcButton.style.display = "block";
 });
+
+function MM1ex0(form) {
+
+    var ans = [];
+    var result = [0.9,1.5,0.3,0.5,0.6];
+    for (i=0; i < 5; i++) {
+        ans[i] = parseFloat(document.form[i].value)
+        console.log(ans[i])
+
+        if (ans[i] == result[i]) {
+            document.getElementById("MM1ex0" + i.toString()).className = 'form-control col-sm-1 border-success';
+        } else {
+            document.getElementById("MM1ex0" + i.toString()).className = 'form-control col-sm-1 border-danger';
+        }
+    }
+}
 
 function Calc(form) {
 
