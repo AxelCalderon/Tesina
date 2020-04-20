@@ -60,10 +60,10 @@
     <div class="row">
       <div class="col-3">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Queueing Models</a>
-          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Kendall's Notation</a>
-          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">M/M/1 Queue</a>
-          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">M/M/C Queue</a>
+          <a class="nav-link active" id="v-pills-queueing-tab" data-toggle="pill" href="#v-pills-queueing" role="tab" aria-controls="v-pills-queueing" aria-selected="true">Queueing Models</a>
+          <a class="nav-link" id="v-pills-kendall-tab" data-toggle="pill" href="#v-pills-kendall" role="tab" aria-controls="v-pills-kendall" aria-selected="false">Kendall's Notation</a>
+          <a class="nav-link" id="v-pills-mm1-tab" data-toggle="pill" href="#v-pills-mm1" role="tab" aria-controls="v-pills-mm1" aria-selected="false">M/M/1 Queue</a>
+          <a class="nav-link" id="v-pills-mmc-tab" data-toggle="pill" href="#v-pills-mmc" role="tab" aria-controls="v-pills-mmc" aria-selected="false">M/M/c Queue</a>
         </div>
       </div>
       <div class="col-9">
@@ -73,7 +73,7 @@
 
         <!---- Queueing Model tab -------->
 
-          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-queueing-tab">
+          <div class="tab-pane fade show active" id="v-pills-queueing" role="tabpanel" aria-labelledby="v-pills-queueing-tab">
             <p>The basic queueing model it's just a queue line and server. Waiting line queue is where the customers form a waiting line. 
               The order for a line queue is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
             <img src="/images/Untitled-2.png" class="container"><br><br>
@@ -151,7 +151,7 @@
           </div>
         <!---------- Kendall tab --------------->
 
-          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-Kendall-tab">
+          <div class="tab-pane fade" id="v-pills-kendall" role="tabpanel" aria-labelledby="v-pills-kendall-tab">
             <p>Kendall introduced a shorthand notation to characterize a range of these queueing models:</p>
             <p><em>A / B / c / K / n / D,</em></p>
             <p>Where</p>
@@ -169,14 +169,14 @@
 
         <!----- MM1 tab -------------->  
 
-          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-MM1-tab">
+          <div class="tab-pane fade" id="v-pills-mm1" role="tabpanel" aria-labelledby="v-pills-mm1-tab">
             <p>M/M/1 queueing system is the simplest queueing system, a single channel waiting line, where arrivals form a single line 
               to be served by a single station. The requests arrive according to a Poisson process with rate &lambda;, 
               that it's the interarrival times are independent, exponentially distributed random variables with parameter &lambda;. The service times are 
               also assumed to be independent and exponentially distributed with parameter &mu;.</p>
             <img src="images/singleServerSinglePhase-01.png" class="container"><br>
             <p>M/M/1 queueing system means there is one queue per server. This doesn't mean you can't
-              have multiple servers. Which would mean if there are more servers, each of these are computed
+              have multiple servers, but for each server you need a queueu. Which would mean if there are more servers, each of these are computed
               using M/M/1 queues. <br>Example: 3 servers with 3 queues would be denoted as 3(M/M/1).</p>
             <img src="images/3MM1-03.png"  width="450" height="180" class="center"><br>
             <p class="title1">Analysis of the System</p>
@@ -297,37 +297,142 @@
               </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <p>M/M/c is when we have a single queue with more than 1 parallel server. M/M/c is pretty similar to M/M/1
-               and it's important to realize the difference between them. In M/M/c queueing system we have k parallel 
-               servers with a single queue, while in M/M/1 you can have multiple servers but for each server you need 
-               to have a queue, for those you want to use the notation c*M/M/1. </p>
-            <p>#####Image goes here#######</p>
-            <p>For this type of queue, we require a &rho; &lt; 1 for it to be stable. To get &rho; on this system we use
-               &rho; = &lambda;/(c&mu;). &rho; represents the average proportion of time which each of the servers is occupied.&nbsp;</p>
-            <p>&lambda; = describes the number of arrivals per unit time</p>
-            <p>&mu; = describes the service rate per unit time&nbsp;</p>
-            <p>c = Number of servers in the queueing System</p>
-            <p>#####Image goes here#######</p>
-            <p>Output:</p>
-            <p>Pn = probability that there are n customers in the system</p>
-            <p>&rho; = Is known as the <em>traffic intensity </em>or <em>server utilization</em></p>
-            <p>L = average number of customers in the system (in waiting line and being served)</p>
-            <p>Lq = average number of customers in waiting line for service</p>
-            <p>W = average time a customer spends in the system (in waiting line and being served)</p>
-            <p>Wq = average time a customer spends waiting in line waiting for service.</p>
-            <p>Formulas (Analysis of the system):</p>
-            <p><em>Number of customers in the system</em></p>
-            <p>If &rho; &lt; 1 the system can be analysed, if &rho; &gt; 1 the queue will keep growing to infinity and can&rsquo;t be calculated.&nbsp;</p>
-            <p>##formular here##</p>
-            <p>Where Pn is the probability that there are customers in the system. The average number of customers in the system (in service and in queue) is given by:</p>
-            <p>##formula here##</p>
-            <p>To calculate the average number of customers waiting in queue, remove the server utilization from the formula to get:</p>
-            <p>##formula here##</p>
-            <p>Time in system</p>
-            <p>##formula here##</p>
-            <p>Examples:</p>
-            <p>##examples here##</p>
+
+        <!--------- MMC tab ------------>
+        
+          <div class="tab-pane fade" id="v-pills-mmc" role="tabpanel" aria-labelledby="v-pills-mmc-tab">
+            <p>M/M/c is a queueing system with a single queue handeled by multiple servers or channels. 
+              We still assume that arrivals follow a Poisson probabilityand that service time are exponentially distributed.</br>
+              Something to note is that M/M/c is pretty similar to M/M/1 and it's important to learn the difference between them. 
+              In M/M/c queueing system we have c parallel servers with a single queue, while in M/M/1 you can have multiple servers but for each server you need 
+              to have a queue, for those you want to use the notation c*M/M/1. </p>
+            <img src="/images/MultiServerSinglePhase-03.png" class="container">
+            <p class="title2">M/M/c/K:</p>
+            <p> In M/M/c its assumed that you have unlimited space for customers to queue. But realistically that wouldn't be the case for an actual situation.
+                M/M/c/K is a more realistic model because it sets a capacity of the system at K. Under this model, if a customer arrives after the maximum queue 
+                size is reached, that customer must be rejected from the system. This models won't be covered in this module, but its good to know that it exists. 
+            </p>
+            <p class="title1">Analysis of the System</p>
+            <p class="title2">Input:</p>
+            <p>&lambda; = mean number of arrivals per time period</p>
+            <p>&mu; = mean number of people or items served per time period</p>
+            <p>c = number of servers in the queueing System</p>
+            <p class="title2">Output:</p>
+            <p>P<sub>n</sub> = probability that there are n customers in the system</p>
+            <p style="text-align: center;">for n &#8804; c</p>
+            <p> \[P_n = {({&lambda;/ &mu;})^2\over n!}{P_0}\] </p>
+            <p style="text-align: center;">for n &#62; c</p>
+            <p> \[P_n = {({&lambda;/ &mu;})^2\over c!c^{n-c}}{P_0}\]</p>
+            <p>P<sub>0</sub> = probability that there are 0 customers in the system(the service unit is idle)</p>
+            <p>\[P_0 = {1\over \left[ {\sum_{n=0}^{n=c-1}} {1\over n!}{({&lambda;\over &mu;})^n}\right] + {1\over c!}{({&lambda;\over &mu;})^c}{&mu;c\over &mu;c - &lambda;}}\]</p>
+            <p>&rho; = percentage of time a server is being utilized by a customer, also known as known as <em>server utilization</em>.</p>
+            <p>\[&rho; = {&lambda;\over &mu;c}\]</p>
+            <p>L = average number of customers in the system (waiting line and being served)</p>
+            <p>\[L = {({&lambda;/ &mu;})^c{&lambda;&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0} + {&lambda;\over &mu;}\]</p>
+            <p>L<sub>q</sub> = average number of customers in waiting line for service</p>
+            <p>\[L_q= {({&lambda;/ &mu;})^c{&lambda;&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0}\]</p>
+            <p>W = average time a customer spends in the system (waiting line and being served)</p>
+            <p>\[W = {({&lambda;/ &mu;})^c{&lambda;&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0} + {1\over &mu;}\]</p>
+            <p>W<sub>q</sub> = average time a customer spends waiting in line waiting for service.</p>
+            <p>\[W_q = {({&lambda;/ &mu;})^c{&lambda;&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0}\]</p>
+            <p>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#ExampleMMc" aria-expanded="false" aria-controls="collapseExample">
+                Example #1
+              </button>
+            </p>
+             <!--------- example MMC ---------->
+             <div class="collapse" id="ExampleMMc">
+              <div class="card card-body">
+                <p>Doe's Oil Change shop decided to open another garage bay and hire a second mechanic to help with oil changes. Customers still arrive 
+                  at an average rate of &lambda; = 2 per hour, but they will wait in a single line until one of the two mechanics is free. Each mechanic changes oil at a rate of
+                  &mu; = 3 per hour. 
+                </p>
+                <p>From this description, we are able to obtain the operating characteristics of Doe&rsquo;s Oil Change Shop&rsquo;s queueing system:</p>
+                  <p class="examples">
+                    <b>&lambda;</b> = 2 cars arriving per hour</br>
+                    <b>&mu;</b> = 3 cars serviced per hour</br>
+                    <b>c</b> = 2 mechanics
+                    \[P_0 = 1- {&lambda;\over &mu;} = 1- {2\over 3} = {1\over 3}\]
+                    <b>P<sub>0</sub></b> = .33 probability there are 0 cars in the system. </br>
+                    \[&rho; = {&lambda;\over &mu;} = {2\over 3} \]
+                    <b>&rho;</b> = 66.6% of the time the mechanic is busy </br>
+                    \[L = {&lambda;\over {&mu; - &lambda;}} = {2\over {3 - 2}} = 2\]
+                    <b>L</b> = 2 cars in the system, on average </br>
+                    \[L_q = {&lambda;^2\over{({&mu;( {&mu; - &lambda;}}}))} = {2^2\over{({3( {3 - 2}}}))} = {4\over{{3}}} \]
+                    <b>L<sub>q</sub></b> = 1.33 cars waiting in line, on average
+                    \[W = {1\over {&mu; - &lambda;}} = {1\over {3 - 2}} = 1\]
+                    <b>W</b> = 1 hour average waiting time in the system
+                    \[W_q = {&lambda;\over{({&mu;( {&mu; - &lambda;}}}))} = {2\over{({3( {3 - 2}}}))} = {2\over{3}}\]
+                    <b>W<sub>q</sub></b> = 40 minute average waiting time per car
+                  </p>
+              </div>
+            </div> 
+            <br>
+
+          <!------ practice ------>
+          <p class="title2">Practice</p>
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Exercise #1
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                
+                  <div class="card-body">
+                    <form name="form">
+                      Customers arrive at Paul Harrold's Styling Shop at a rate of 3 per hour, distributed in a Possion fashion.
+                      Paul can perform haircuts at a rate of 5 per hour, distributed exponentially.<br><br>
+                      a) Find the average number of customers waiting for haircuts. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMcex00" required>
+                      b) Find the average number of customers in the shop. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMcex01" required>
+                      c) Find the average time (in hours) a customer waits until it is his or her turn. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMcex02" required>
+                      d) Find the average time (in hours) a customer spends in the shop. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMcex03" required>
+                      e) Find the percentage of time that Paul is busy. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMcex04" required></br>
+                      <button type="button" class="btn btn-primary" id="CompleteMM1" onclick="MM1ex0(form)" style="display:block">Check</button>
+                    </form>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Collapsible Group Item #2
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Collapsible Group Item #3
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
