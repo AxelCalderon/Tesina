@@ -1,5 +1,9 @@
 4. Work on Formula pages
-    MAYBE ADD OTHER TABS
+    change names on the acordion thingy in the practice part
+    finish MMC example and practice
+    do MD1 tab
+    maybe do optimization tab
+    maybe add paginations
 2. Display MMC results 
     popover if wrong input calculator page
     Make it look better

@@ -37,7 +37,7 @@ function MM1ex0(form) {
     var ans = [];
     var result = [0.9,1.5,0.3,0.5,0.6];
     for (i=0; i < 5; i++) {
-        ans[i] = parseFloat(document.form[i].value)
+        ans[i] = parseFloat(document.MM1form[i].value)
         console.log(ans[i])
 
         if (ans[i] == result[i]) {
