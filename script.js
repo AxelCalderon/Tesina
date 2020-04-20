@@ -8,8 +8,6 @@ var formTab = document.getElementById("formTab");
 var CTile = document.getElementById("CTile");
 var CTileText = document.getElementById("CTileText");
 
-// Lesson buttons
-
 
 // result Variable
 

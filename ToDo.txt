@@ -1,10 +1,9 @@
-1. REMOVE FOOTERS; Add footer to other pages and fix
 4. Work on Formula pages
-    Remove the lambda from the MM1more picture
-    fix other tabs
     MAYBE ADD OTHER TABS
 2. Display MMC results 
+    popover if wrong input calculator page
     Make it look better
     Make it show results for the other two queue
+    different units forms > select menu (in bootstrap page)
 3. Work on Main Page
 4. About me leave it for the end
