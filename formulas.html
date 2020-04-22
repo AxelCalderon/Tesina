@@ -227,7 +227,7 @@
                       \[W = {1\over {&mu; - &lambda;}} = {1\over {3 - 2}} = 1\]
                       <b>W</b> = 1 hour average waiting time in the system
                       \[W_q = {&lambda;\over{({&mu;( {&mu; - &lambda;}}}))} = {2\over{({3( {3 - 2}}}))} = {2\over{3}}\]
-                      <b>W<sub>q</sub></b> = 40 minute average waiting time per car
+                      <b>W<sub>q</sub></b> = 40 minute average waiting time per car in queue
                     </p>
                 </div>
               </div> 
@@ -235,17 +235,17 @@
 
             <!------ practice ------>
             <p class="title2">Practice</p>
-            <div class="accordion" id="accordionExample">
+            <div class="accordion" id="accordionExampleMM1">
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneMM1" aria-expanded="true" aria-controls="collapseOne">
                       Exercise #1
                     </button>
                   </h5>
                 </div>
             
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="collapseOneMM1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExampleMM1">
                   
                     <div class="card-body">
                       <form name="MM1form">
@@ -270,12 +270,12 @@
               <div class="card">
                 <div class="card-header" id="headingTwo">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Collapsible Group Item #2
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoMM1" aria-expanded="false" aria-controls="collapseTwo">
+                      Exercise #2
                     </button>
                   </h5>
                 </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div id="collapseTwoMM1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExampleMM1">
                   <div class="card-body">
                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                   </div>
@@ -284,12 +284,12 @@
               <div class="card">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Collapsible Group Item #3
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeMM1" aria-expanded="false" aria-controls="collapseThree">
+                      Exercise #3
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div id="collapseThreeMM1" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExampleMM1">
                   <div class="card-body">
                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                   </div>
@@ -352,18 +352,22 @@
                     <b>&lambda;</b> = 2 cars arriving per hour</br>
                     <b>&mu;</b> = 3 cars serviced per hour</br>
                     <b>c</b> = 2 mechanics
-                    \[P_0 = 1- {&lambda;\over &mu;} = 1- {2\over 3} = {1\over 3}\]
-                    <b>P<sub>0</sub></b> = .33 probability there are 0 cars in the system. </br>
-                    \[&rho; = {&lambda;\over &mu;} = {2\over 3} \]
-                    <b>&rho;</b> = 66.6% of the time the mechanic is busy </br>
-                    \[L = {&lambda;\over {&mu; - &lambda;}} = {2\over {3 - 2}} = 2\]
-                    <b>L</b> = 2 cars in the system, on average </br>
-                    \[L_q = {&lambda;^2\over{({&mu;( {&mu; - &lambda;}}}))} = {2^2\over{({3( {3 - 2}}}))} = {4\over{{3}}} \]
-                    <b>L<sub>q</sub></b> = 1.33 cars waiting in line, on average
-                    \[W = {1\over {&mu; - &lambda;}} = {1\over {3 - 2}} = 1\]
-                    <b>W</b> = 1 hour average waiting time in the system
-                    \[W_q = {&lambda;\over{({&mu;( {&mu; - &lambda;}}}))} = {2\over{({3( {3 - 2}}}))} = {2\over{3}}\]
-                    <b>W<sub>q</sub></b> = 40 minute average waiting time per car
+                    \[P_0 = {1\over \left[ {\sum_{n=0}^{1}} {1\over n!}{({2\over 3})^n}\right] + {1\over 2!}{({2\over 3})^2}{3(2)\over 3(2) - 2}}\]
+                    \[= {1\over \left[ 1 + {2\over3}\right] + {1\over 2}{({4\over 9})}{6\over 6 - 2}}\]
+                    \[= {1\over {5\over3}\ + {1\over 3}} = {1\over 2}\] 
+                    <b>P<sub>0</sub></b> = .50 probability there are 0 cars in the system. </br>
+                    \[&rho; = {&lambda;\over &mu;c} = {2\over 3(2)} = = {1\over 3}\]
+                    <b>&rho;</b> = 33.3% of the time the mechanic is busy </br>
+                    \[L = {({2/ 3})^2{2(3)}\over {(2 - 1 ) !(2(3) - 2)^2}}\left({1\over2}\right) + {2\over 3}\]
+                    \[L = {8/3\over16}\left({1\over2}\right) + {2\over 3} = {3\over 4} \]
+                    <b>L</b> = .75 cars in the system, on average </br>    
+                    \[L_q= {({2/ 3})^2{2(3)}\over {(2 - 1 ) !(2(3) - 2)^2}}\left({1\over2}\right)\]
+                    \[L_q = {8/3\over16}\left({1\over2}\right) = {8/3\over32} = { 1\over 12}\]
+                    <b>L<sub>q</sub></b> = .083 cars waiting in line, on average
+                    \[W = {L\over &mu;} = {3/4\over 2} = {3\over 8}hour\]
+                    <b>W</b> = 22.5 minutes average waiting time in the system
+                    \[W_q = {L_q\over &mu;} = {1/12\over 2} = {1\over 24}hour\]
+                    <b>W<sub>q</sub></b> = 2.5 minutes average waiting time per car in the queue
                   </p>
               </div>
             </div> 
@@ -371,61 +375,63 @@
 
           <!------ practice ------>
           <p class="title2">Practice</p>
-          <div class="accordion" id="accordionExample">
+          <div class="accordion" id="accordionExampleMMC">
             <div class="card">
-              <div class="card-header" id="headingOne">
+              <div class="card-header" id="headingOneMMC">
                 <h5 class="mb-0">
-                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneMMC" aria-expanded="true" aria-controls="collapseOne">
                     Exercise #1
                   </button>
                 </h5>
               </div>
           
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div id="collapseOneMMC" class="collapse" aria-labelledby="headingOneMMC" data-parent="#accordionExampleMMC">
                 
                   <div class="card-body">
                     <form name="MMCform">
-                      Customers arrive at Paul Harrold's Styling Shop at a rate of 3 per hour, distributed in a Possion fashion.
-                      Paul can perform haircuts at a rate of 5 per hour, distributed exponentially.<br><br>
-                      a) Find the average number of customers waiting for haircuts. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMcex00" required>
-                      b) Find the average number of customers in the shop. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMcex01" required>
+                      Wagner's Bank is the only bank in the small town of Regen. On a typical Friday, an average of 15 Customers
+                      per hour arrive at the bank to transact business. There is only 2 tellers at the bank, and the average time
+                      required to transact business is 5min. Its is assumed that service times may be described by the exponential distribution.
+                      A single line would be used, and the customer at the front of the line would go to the first available bank teller. <br><br>
+                      a) Find the average number of customers waiting in line. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMCex00" required>
+                      b) Find the average number of customers in the bank. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMCex01" required>
                       c) Find the average time (in hours) a customer waits until it is his or her turn. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMcex02" required>
-                      d) Find the average time (in hours) a customer spends in the shop. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMcex03" required>
-                      e) Find the percentage of time that Paul is busy. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMcex04" required></br>
-                      <button type="button" class="btn btn-primary" id="CompleteMM1" onclick="MM1ex0(form)" style="display:block">Check</button>
+                      <input type="text" class="form-control col-sm-1" id="MMCex02" required>
+                      d) Find the average time (in hours) a customer spends in the bank. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMCex03" required>
+                      e) Find the probability that the bank is empty. <br>
+                      <input type="text" class="form-control col-sm-1" id="MMCex04" required></br>
+                      <button type="button" class="btn btn-primary" id="CompleteMMC" onclick="MMCex0(form)" style="display:block">Check</button>
                     </form>
                   </div>
                 </form>
               </div>
             </div>
             <div class="card">
-              <div class="card-header" id="headingTwo">
+              <div class="card-header" id="headingTwoMMC">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoMMC" aria-expanded="false" aria-controls="collapseTwo">
+                    Exercise #2
                   </button>
                 </h5>
               </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div id="collapseTwoMMC" class="collapse" aria-labelledby="headingTwoMMC" data-parent="#accordionExampleMMC">
                 <div class="card-body">
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                 </div>
               </div>
             </div>
             <div class="card">
-              <div class="card-header" id="headingThree">
+              <div class="card-header" id="headingThreeMMC">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Collapsible Group Item #3
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeMMC" aria-expanded="false" aria-controls="collapseThree">
+                    Exercise #3
                   </button>
                 </h5>
               </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseThreeMMC" class="collapse" aria-labelledby="headingThreeMMC" data-parent="#accordionExampleMMC">
                 <div class="card-body">
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                 </div>

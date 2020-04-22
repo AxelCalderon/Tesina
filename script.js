@@ -33,9 +33,9 @@ mmcButton.addEventListener("click", function(){
 });
 
 function MM1ex0(form) {
-
     var ans = [];
-    var result = [0.9,1.5,0.3,0.5,0.6];
+    var result = [0.9,1.5,0.3,0.5,0.6]; //answers for MM1ex0
+
     for (i=0; i < 5; i++) {
         ans[i] = parseFloat(document.MM1form[i].value)
         console.log(ans[i])
@@ -48,11 +48,31 @@ function MM1ex0(form) {
     }
 }
 
+function MMCex0(form) {
+
+    var ans = [];
+    var result = [0.80,2.05,0.5,0.13,.52]; //answers for MMCex0
+
+    for (i=0; i < 5; i++) {
+        ans[i] = parseFloat(document.MMCform[i].value)
+        console.log(ans[i])
+
+        if (ans[i] == result[i]) {
+            document.getElementById("MMCex0" + i.toString()).className = 'form-control col-sm-1 border-success';
+        } else {
+            document.getElementById("MMCex0" + i.toString()).className = 'form-control col-sm-1 border-danger';
+        }
+    }
+}
+
 function Calc(form) {
 
     document.getElementById("resultTab").style.display = "block";
 
     var c = parseInt(document.form.C.value,10); // number of servers
+    if (c!== c) {
+        c = 1;
+    }
     var k = 0; // queue capacity
     var nu = parseFloat(document.form.nu.value, 10); // services
     var lamb = parseFloat(document.form.lamb.value, 10); // arrivals 
@@ -108,6 +128,7 @@ function Calc(form) {
     
     // calculates MMK prob
     function probMMK(c) {
+
         n = 0
         for(i = 0; i < c; i++) {
             n += ((1/factorial(i)) * Math.pow((lamb/nu),i))
