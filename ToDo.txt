@@ -1,13 +1,15 @@
-4. Work on Formula pages
-    change names on the acordion thingy in the practice part
-    finish MMC example and practice
+1. Work on Formula pages
     do MD1 tab
     maybe do optimization tab
     maybe add paginations
-2. Display MMC results 
+2. calculator
+    Make it show results for the other two queue (check focus on buttons)
+    probabilities pn and p0, work on them.
     popover if wrong input calculator page
     Make it look better
-    Make it show results for the other two queue
     different units forms > select menu (in bootstrap page)
 3. Work on Main Page
 4. About me leave it for the end
+
+ to validate if calculator has things
+https://stackoverflow.com/questions/30317240/how-can-i-validate-multiple-fields-in-a-form-using-javascript

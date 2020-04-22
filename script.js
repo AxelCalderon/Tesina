@@ -32,6 +32,7 @@ mmcButton.addEventListener("click", function(){
     calcButton.style.display = "block";
 });
 
+
 function MM1ex0(form) {
     var ans = [];
     var result = [0.9,1.5,0.3,0.5,0.6]; //answers for MM1ex0
@@ -85,7 +86,7 @@ function Calc(form) {
         l: rounding(lamb/(nu - lamb)),
         lq: rounding(((Math.pow(lamb,2))/(nu * (nu - lamb)))),
         prob: res = 1 - (lamb/nu),
-        rho: lamb/nu
+        rho: rounding(lamb/nu)
     };
 
     var mmk = {
@@ -111,6 +112,7 @@ function Calc(form) {
     resultW.innerHTML = mm1.w;
     resultWq.innerHTML = mm1.wq;
     resultRho.innerHTML = mm1.rho;
+
     
     function prob() {
         res = 1 - (lamb/nu)
@@ -118,7 +120,7 @@ function Calc(form) {
     }
     
     function rho() {
-        res = lamb/nu
+        rounding(res = lamb/nu)
         console.log('rho = ' + res)
     }
     
@@ -129,7 +131,7 @@ function Calc(form) {
     // calculates MMK prob
     function probMMK(c) {
 
-        n = 0
+        n = 0 // 
         for(i = 0; i < c; i++) {
             n += ((1/factorial(i)) * Math.pow((lamb/nu),i))
             //console.log(n)
