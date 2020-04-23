@@ -52,9 +52,12 @@
             <h1 class="display-4">Queueing Theory Calculator</h1>
             <p class="lead">Choose the queueing model.</p>
             <hr class="my-4">           
-            <a class="btn btn-primary btn-lg" href="#" role="button" id="mm1Button" data-toggle="button">M/M/1</a>
-            <a class="btn btn-primary btn-lg " href="#" role="button" id="mmcButton" data-toggle="button">M/M/C</a>
-            <a class="btn btn-primary btn-lg " href="#" role="button" id="md1Button" data-toggle="button">M/D/1</a>
+            <div id="selector" class="btn-group btn-lg">
+              <button type="button" id="mm1button" class="btn btn-lg btn-primary active"> M/M/1</button>
+              <button type="button" id="mmcbutton" class="btn btn-lg btn-primary">M/M/C</button>
+              <button type="button" id="md1button" class="btn btn-lg btn-primary">M/D/1</button>
+            </div>
+
         </div>
     </div>
 
@@ -145,7 +148,7 @@
               <div class="card-header">Probabilities</div>
               <div class="card-body text-warning">
                   <p class="card-text" style="display:inline-block">P(n)&nbsp;</p>
-                  <input id="n" type="text" class="form-control col-sm-3" style="display:inline-block" value="0">
+                  <input id="prob" type="text" class="form-control col-sm-3" style="display:inline-block" target="target" value="0">
                   <p class="card-text">customers in system</p>
                   <h2 class="card-title" id="resultProb">0</h2>
                   

@@ -1,37 +1,48 @@
+// model selector buttons
+$('#selector button').click(function() {
+    $(this).addClass('active').siblings().removeClass('active');
+
+    console.log(this);
+
+    if(this.id == 'mm1button') {
+        console.log('smile :D')
+        formTab.style.display = "block";
+        calcButton.style.display = "block";
+        CTile.style.display = "none";
+        CTileText.style.display = "none";
+    } else if (this.id == 'mmcbutton') {
+        console.log( 'this is not the one I want')
+        formTab.style.display = "block";
+        CTile.style.display = "block";
+        CTileText.style.display = "block";
+        calcButton.style.display = "block";
+    } else {
+        console.log('everything is terrible')
+        formTab.style.display = "block";
+        calcButton.style.display = "block";
+        CTile.style.display = "none";
+        CTileText.style.display = "none";
+    }
+});
+
 // calculator buttons
 var calcButton = document.getElementById("calcButton");
-var mm1Button = document.getElementById("mm1Button");
-var mmcButton = document.getElementById("mmcButton");
 
+//for
 var formTab = document.getElementById("formTab");
 
 var CTile = document.getElementById("CTile");
 var CTileText = document.getElementById("CTileText");
 
 
-// result Variable
+// Result Outputs
 
 var resultL = document.getElementById("resultL");
 var resultLq = document.getElementById("resultLq");
 var resultW = document.getElementById("resultW");
 var resultWq = document.getElementById("resultWq");
 var resultRho = document.getElementById("resultRho");
-
-//listeners
-mm1Button.addEventListener("click", function(){ 
-    formTab.style.display = "block";
-    calcButton.style.display = "block";
-    CTile.style.display = "none";
-    CTileText.style.display = "none";
-});
-
-mmcButton.addEventListener("click", function(){
-    formTab.style.display = "block";
-    CTile.style.display = "block";
-    CTileText.style.display = "block";
-    calcButton.style.display = "block";
-});
-
+var resultPro = document.getElementById("resultProb");
 
 function MM1ex0(form) {
     var ans = [];
@@ -78,6 +89,16 @@ function Calc(form) {
     var nu = parseFloat(document.form.nu.value, 10); // services
     var lamb = parseFloat(document.form.lamb.value, 10); // arrivals 
     var r = Math.round(r) // rounding number
+
+    let input = document.querySelector('input[target]');
+
+    input.addEventListener('keyup', (e) => {
+        if(e.keyCode === 13) {
+            console.log(e.target.value);
+            x = rounding( (1 - (lamb/nu)) * Math.pow((lamb/nu),e.target.value));
+            resultPro.innerHTML = x;
+        }
+    })
     
     var mm1 =  {
         model: mm1,
@@ -85,7 +106,7 @@ function Calc(form) {
         wq: rounding(lamb/(nu * (nu - lamb))),
         l: rounding(lamb/(nu - lamb)),
         lq: rounding(((Math.pow(lamb,2))/(nu * (nu - lamb)))),
-        prob: res = 1 - (lamb/nu),
+        prob: rounding(res = 1 - (lamb/nu)),
         rho: rounding(lamb/nu)
     };
 
@@ -112,6 +133,7 @@ function Calc(form) {
     resultW.innerHTML = mm1.w;
     resultWq.innerHTML = mm1.wq;
     resultRho.innerHTML = mm1.rho;
+    resultPro.innerHTML = mm1.prob;
 
     
     function prob() {
