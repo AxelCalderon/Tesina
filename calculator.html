@@ -64,100 +64,85 @@
     <!------- form ----------->
 
     <form name="form">
-        <div class="container">
-          <div id="formTab" style="display:none";>
-            <div class="form-group">
-                <div id="lambTile" class="col-sm-1">
-                    <br>
-                    <input type="text" name="lamb" id="lamb" class="form-control" placeholder="">
-                </div>
-                <small id="lambTileText" class="text-muted">λ is mean arrival rate</small>
-                <div id="nuTile" class="col-sm-1">
-                    <br>
-                    <input type="text" name="nu" id="nu" class="form-control" placeholder="">
-                </div>
-                <small id="NuTileText" class="text-muted">tab μ is expected service time</small>
-                <div id="CTile" class="col-sm-1">
-                  <br>
-                  <input type="text" name="C" id="C" class="form-control" placeholder="">
-                </div>
-                <small id="CTileText" class="text-muted">C Number of servers in parallel </small>
+      <div class="container">
+        <div id="formTab" style="display:none";>
+          <div class="form-group">
+
+            <div id="arrivalservicecard" class="card" style="width: 17rem;">
+              <div class="card-body">
+                <h6 class="card-title">Arrivals and Service Rates</h6>
+                <h4><b>λ</b> Arrival Rate / Hour</h4>
+                <input type="text" name="lamb" id="lamb" class="form-control col-sm-3" placeholder="">
+                <h4><b>μ</b> Service Rate / Hour</h4>
+                <input type="text" name="nu" id="nu" class="form-control col-sm-3" placeholder="">
+              </div>
             </div>
+              <div id="CTile" class="col-sm-1">
+                <br>
+                <input type="text" name="C" id="C" class="form-control" placeholder="">
+              </div>
+              <small id="CTileText" class="text-muted">C Number of servers in parallel </small>
+          </div>
         </div>  
-  
-            <button type="button" class="btn btn-primary" id="calcButton" onclick="Calc(form)" style="display:none">Calculate</button>
-            <br><br>
 
+        <button type="button" class="btn btn-primary" id="calcButton" onclick="Calc(form)" style="display:none">Calculate</button>
+        <br><br>
 
-    <!------------ result ---------------->
-
-          <div id="resultTab" style="display:none">
-            <div class="row justify-content-around">
-              <div class="col-md-3">
-                <div class="card border-primary mb-2" style="max-width: 14rem;">
-                    <div class="card-header">L</div>
-                    <div class="card-body text-primary">
-                        <h2 class="card-title" id="resultL" style="float: left">0</h2>
-                        <h2 class="card-title" id="unitL"> &nbsp;cust.</h2>
-                        <p class="card-text">Average Customers in System</p>
-                    </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card border-secondary mb-2" style="max-width: 14rem;">
-                    <div class="card-header">Lq</div>
-                    <div class="card-body text-secondary">
-                        <h2 class="card-title" id="resultLq" style="float: left">0</h2>
-                        <h2 class="card-title" id="unitLq"> &nbsp;cust.</h2>
-                        <p class="card-text">Average Customers in Queue</p>
-                    </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card border-success mb-2" style="max-width: 14rem;">
-                    <div class="card-header">W</div>
-                    <div class="card-body text-success">
-                        <h2 class="card-title" id="resultW" style="float: left">0</h2>
-                        <h2 class="card-title" id="unitW"> &nbsp;hours</h2>
-                        <p class="card-text">Average Time Spent in System</p>
-                    </div>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="card border-info mb-2" style="max-width: 14rem;">
-                  <div class="card-header">Wq</div>
-                  <div class="card-body text-info">
-                      <h2 class="card-title" id="resultWq" style="float: left" >0</h2>
-                      <h2 class="card-title" id="unitWq"> &nbsp;hours</h2>
-                      <p class="card-text">Average Time Waiting in Line</p>
-                  </div>
-                </div>
+        <!------------ result ---------------->
+        <div id="resultTab" style="display:none">
+          <div class="card-columns">
+            <div class="card border-primary mb-2">
+              <div class="card-header">L</div>
+              <div class="card-body text-primary">
+                  <h2 class="card-title" id="resultL" style="float: left">0</h2>
+                  <h2 class="card-title" id="unitL"> &nbsp;cust.</h2>
+                  <p class="card-text">Average Customers in System</p>
               </div>
             </div>
-
-          <div class="row justify-content-around">
-            <div class="card border-danger mb-2" style="max-width: 14rem;">
+            <div class="card border-secondary mb-2" >
+              <div class="card-header">Lq</div>
+              <div class="card-body text-secondary">
+                  <h2 class="card-title" id="resultLq" style="float: left">0</h2>
+                  <h2 class="card-title" id="unitLq"> &nbsp;cust.</h2>
+                  <p class="card-text">Average Customers in Queue</p>
+              </div>
+            </div>
+            <div class="card border-success mb-2">
+              <div class="card-header">W</div>
+              <div class="card-body text-success">
+                  <h2 class="card-title" id="resultW" style="float: left">0</h2>
+                  <h2 class="card-title" id="unitW"> &nbsp;hours</h2>
+                  <p class="card-text">Average Time Spent in System</p>
+              </div>
+            </div>
+            <div class="card border-info mb-2">
+              <div class="card-header">Wq</div>
+              <div class="card-body text-info">
+                  <h2 class="card-title" id="resultWq" style="float: left" >0</h2>
+                  <h2 class="card-title" id="unitWq"> &nbsp;hours</h2>
+                  <p class="card-text">Average Time Waiting in Line</p>
+              </div>
+            </div>
+            <div class="card border-danger mb-2" >
               <div class="card-header">ρ</div>
               <div class="card-body text-danger">
                   <h2 class="card-title" id="resultRho">0</h2>
                   <p class="card-text">Server Utilization</p>
               </div>
             </div>
-  
-            <div class="card border-warning mb-2" style="max-width: 12rem;">
+            <div class="card border-warning mb-2" style="max-height: 10.3rem;">
               <div class="card-header">Probabilities</div>
               <div class="card-body text-warning">
                   <p class="card-text" style="display:inline-block">P(n)&nbsp;</p>
                   <input id="prob" type="text" class="form-control col-sm-3" style="display:inline-block" target="target" value="0">
-                  <p class="card-text">customers in system</p>
+                  <p class="card-text" style="display:inline-block">customers in system</p>
                   <h2 class="card-title" id="resultProb">0</h2>
-                  
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>
-  </form>  
+    </form>  
 
   <!-- Bootstrap core JavaScript -->
   <script src="jquery/jquery.min.js"></script>
