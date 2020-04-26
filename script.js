@@ -5,24 +5,25 @@ $('#selector button').click(function() {
     console.log(this);
 
     if(this.id == 'mm1button') {
-        console.log('smile :D')
+        model = 'mm1';
         formTab.style.display = "block";
         calcButton.style.display = "block";
         CTile.style.display = "none";
         CTileText.style.display = "none";
     } else if (this.id == 'mmcbutton') {
-        console.log( 'this is not the one I want')
+        model = 'mmc';
         formTab.style.display = "block";
         CTile.style.display = "block";
         CTileText.style.display = "block";
         calcButton.style.display = "block";
     } else {
-        console.log('everything is terrible')
+        model = 'md1';
         formTab.style.display = "block";
         calcButton.style.display = "block";
         CTile.style.display = "none";
         CTileText.style.display = "none";
     }
+    return model;
 });
 
 // calculator buttons
@@ -110,13 +111,14 @@ function Calc(form) {
         rho: rounding(lamb/nu)
     };
 
-    var mmk = {
-        model: mmk,
+    var mmc = {
+        model: mmc,
         w: wMMK(),
         wq: wqMMK(),
         l: lMMK(),
         lq: lqMMK(),
         prob: probMMK(c),
+        rho: rounding(lamb/(c * nu))
     }
 
     var md1 = {
@@ -126,91 +128,99 @@ function Calc(form) {
         l: lMD1(),
         lq: lqMD1(),
         prob: probMD1(),
+        rho: rounding(lamb/nu)
     }
 
-    resultL.innerHTML = mm1.l;
-    resultLq.innerHTML = mm1.lq;
-    resultW.innerHTML = mm1.w;
-    resultWq.innerHTML = mm1.wq;
-    resultRho.innerHTML = mm1.rho;
-    resultPro.innerHTML = mm1.prob;
+    console.log("This is the model used right now: "+ model)
 
-    
-    function prob() {
-        res = 1 - (lamb/nu)
-        console.log('prob 0 = ' + res)
+    switch (model) {
+        case 'mm1':
+            resultL.innerHTML = mm1.l;
+            resultLq.innerHTML = mm1.lq;
+            resultW.innerHTML = mm1.w;
+            resultWq.innerHTML = mm1.wq;
+            resultRho.innerHTML = mm1.rho;
+            resultPro.innerHTML = mm1.prob;
+            break;
+        case 'mmc':
+            resultL.innerHTML = mmc.l;
+            resultLq.innerHTML = mmc.lq;
+            resultW.innerHTML = mmc.w;
+            resultWq.innerHTML = mmc.wq;
+            resultRho.innerHTML = mmc.rho;
+            resultPro.innerHTML = mmc.prob;
+            break;
+        case 'md1':
+            resultL.innerHTML = md1.l;
+            resultLq.innerHTML = md1.lq;
+            resultW.innerHTML = md1.w;
+            resultWq.innerHTML = md1.wq;
+            resultRho.innerHTML = md1.rho;
+            resultPro.innerHTML = md1.prob;
     }
-    
-    function rho() {
-        rounding(res = lamb/nu)
-        console.log('rho = ' + res)
-    }
-    
-    prob()
-    rho()
-
-    
+       
     // calculates MMK prob
     function probMMK(c) {
 
         n = 0 // 
         for(i = 0; i < c; i++) {
             n += ((1/factorial(i)) * Math.pow((lamb/nu),i))
-            //console.log(n)
         }
-        //console.log(n)
 
         res = 1 / (n + (1/factorial(c)) * (Math.pow(lamb/nu,c))
          * ((c * nu) / ((c * nu) - lamb)))
-        //console.log('mmk prob= ' + res);
-        return res;
+        return rounding(res);
     }
 
     // calculates MMK L
     function lMMK() {
         res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1))
          * Math.pow(c * nu - lamb, 2)) * probMMK(c) + lamb/nu
-        console.log('lmmk = '+ res)
+        return rounding(res);
     }
 
     // calculates MMK Lq
     function lqMMK() {
         res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1))
          * Math.pow(c * nu - lamb, 2)) * probMMK(c)
-        console.log('lqmmk = '+ res)
+        return rounding(res);
     }
 
     // calculates MMK W
     function wMMK() {
         res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1))
          * Math.pow(c * nu - lamb, 2)) * probMMK(c) + 1/nu
-        console.log('wmmk = '+ res)
+        return rounding(res);
     }
     
     // calculates MMK Wq
     function wqMMK() {
         res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1))
          * Math.pow(c * nu - lamb, 2)) * probMMK(c)
-        console.log('wqmmk = '+ res)
+        return rounding(res);
     }
 
-    // calculates MD1
+    // calculates probabilities MD1
     function probMD1() {
         res = 1 - (lamb/nu)
     }
 
+    // Calculates L MD1 
     function lMD1() {
         (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + lamb/nu
     }
 
+    // Calculates Lq MD1 
     function lqMD1() {
         (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)))
     }
 
+    // Calculates w MD1 
     function wMD1() {
         (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + 1/nu
     }
 
+    // Calculates Wq MD1 
     function wqMD1() {
         (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)))
     }
@@ -242,13 +252,16 @@ function Calc(form) {
     // TEST STUFFF PLEASE REMOVE LATER
     unitConverter(4.3,2);
 
-    // rounding to 4 decimal points 
+
+    // Utilities
+
+    // Rounding to 4 decimal points 
     function rounding(n){
         r = Math.round(n * 10000) / 10000
         return r
     }
 
-    // recursive factorial
+    // Recursive factorial
     function factorial (n) {
         
         if (n < 0)

@@ -1,9 +1,9 @@
 1. Work on Formula pages
     do MD1 tab
+    practice show answers
     maybe do optimization tab
     maybe add paginations
 2. calculator
-    Make it show results for the other two queue (check focus on buttons)
     popover if wrong input calculator page
     Make it look better
     different units forms > select menu (in bootstrap page)
