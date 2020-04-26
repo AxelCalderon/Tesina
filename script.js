@@ -203,26 +203,31 @@ function Calc(form) {
     // calculates probabilities MD1
     function probMD1() {
         res = 1 - (lamb/nu)
+        return rounding(res);
     }
 
     // Calculates L MD1 
     function lMD1() {
-        (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + lamb/nu
+        res = (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + lamb/nu;
+        return rounding(res);
     }
 
     // Calculates Lq MD1 
     function lqMD1() {
-        (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)))
+        res = (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)));
+        return rounding(res);
     }
 
     // Calculates w MD1 
     function wMD1() {
-        (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + 1/nu
+        res = (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + 1/nu;
+        return rounding(res);
     }
 
     // Calculates Wq MD1 
     function wqMD1() {
-        (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)))
+        res = (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)))
+        return rounding(res);
     }
 
     // Time Converter
