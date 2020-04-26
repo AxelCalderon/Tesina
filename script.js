@@ -45,6 +45,8 @@ var resultWq = document.getElementById("resultWq");
 var resultRho = document.getElementById("resultRho");
 var resultPro = document.getElementById("resultProb");
 
+// Lessong Page excercises. 
+
 function MM1ex0(form) {
     var ans = [];
     var result = [0.9,1.5,0.3,0.5,0.6]; //answers for MM1ex0
