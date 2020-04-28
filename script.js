@@ -86,7 +86,7 @@ function Calc(form) {
 
     var c = parseInt(document.form.C.value,10); // number of servers
     if (c!== c) {
-        c = 1;
+        c = 0;
     }
     var k = 0; // queue capacity
     var nu = parseFloat(document.form.nu.value, 10); // services
@@ -97,9 +97,28 @@ function Calc(form) {
 
     input.addEventListener('keyup', (e) => {
         if(e.keyCode === 13) {
-            console.log(e.target.value);
-            x = rounding( (1 - (lamb/nu)) * Math.pow((lamb/nu),e.target.value));
-            resultPro.innerHTML = x;
+            n = e.target.value; // number of customers 
+            console.log("show me this number N:" + n + "c: " + c)
+
+            switch (model) {
+                case 'mm1':
+                    x = rounding( (1 - (lamb/nu)) * Math.pow((lamb/nu),n));
+                    resultPro.innerHTML = x;
+                    break;
+                case 'mmc':
+                    if (c == 0) {
+                        x = probMMK(c);
+                        console.log("show this message #1: " + x )
+                    } else if (n <= c) {
+                        x = (Math.pow((lamb/nu),n)/factorial(n)) * probMMK(c);
+                        console.log("show this message #2: " + x )
+                    } else {
+                        x = Math.pow((lamb/nu),n)/(factorial(c)* Math.pow(c,(n-c))) * probMMK(c);
+                        console.log("show this message #3: " + x )
+                    }
+                    resultPro.innerHTML = rounding(x);
+                    break;
+            }
         }
     })
     
@@ -222,13 +241,13 @@ function Calc(form) {
 
     // Calculates w MD1 
     function wMD1() {
-        res = (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + 1/nu;
+        res = (lamb/Math.pow(nu,2))/(2 * (1 - (lamb/nu))) + 1/nu;
         return rounding(res);
     }
 
     // Calculates Wq MD1 
     function wqMD1() {
-        res = (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)))
+        res = (lamb/Math.pow(nu,2))/(2 * (1 - (lamb/nu)))
         return rounding(res);
     }
 

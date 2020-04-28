@@ -64,6 +64,7 @@
           <a class="nav-link" id="v-pills-kendall-tab" data-toggle="pill" href="#v-pills-kendall" role="tab" aria-controls="v-pills-kendall" aria-selected="false">Kendall's Notation</a>
           <a class="nav-link" id="v-pills-mm1-tab" data-toggle="pill" href="#v-pills-mm1" role="tab" aria-controls="v-pills-mm1" aria-selected="false">M/M/1 Queue</a>
           <a class="nav-link" id="v-pills-mmc-tab" data-toggle="pill" href="#v-pills-mmc" role="tab" aria-controls="v-pills-mmc" aria-selected="false">M/M/c Queue</a>
+          <a class="nav-link" id="v-pills-md1-tab" data-toggle="pill" href="#v-pills-md1" role="tab" aria-controls="v-pills-md1" aria-selected="false">M/D/1 Queue</a>
         </div>
       </div>
       <div class="col-9">
@@ -438,7 +439,146 @@
               </div>
             </div>
           </div>
-        </div>
+          </div>
+
+        <!--------- MD1 tab ------------>
+
+          <div class="tab-pane fade" id="v-pills-md1" role="tabpanel" aria-labelledby="v-pills-md1-tab">
+            <p>M/D/1 is a queueing system with a single queue and single server, where arrivals are determined by Poisson process and 
+              servive times are fixed(deterministic). Some service systems have constant service times, instead of exponentially distributed,
+              this are the ones covered in M/D/1 queueing system. When customers or equipment are processed according to a fixed cycle,
+              like its the case in a automatic car wash or an amusement park ridew, constant service times are appropriate. Because constant rates are certain,
+              the values for L<sub>q</sub>, W<sub>q</sub>, L, and W are always less than they would be in Model MM1, which has variable service rates. 
+            </p>
+            <img src="/images/singleServerSinglePhase-01.png" class="container">
+            <p class="title1">Analysis of the System</p>
+            <p class="title2">Input:</p>
+            <p>&lambda; = mean number of arrivals per time period</p>
+            <p>&mu; = mean number of people or items served per time period</p>
+            <p class="title2">Output:</p>
+            <p>P<sub>0</sub> = probability that there are 0 customers in the system(the service unit is idle)</p>
+            <p>\[P_0 = 1- {&lambda;\over &mu;}\]</p>
+            <p>&rho; = percentage of time a server is being utilized by a customer, also known as known as <em>server utilization</em>.</p>
+            <p>\[&rho; = {&lambda;\over &mu;}\]</p>
+            <p>L = average number of customers in the system (waiting line and being served)</p>
+            <p>\[L= {{(&lambda;/&mu;)^2}\over2(1 - &lambda;/&mu;)} + { &lambda;\over&mu;}\]</p>
+            <p>L<sub>q</sub> = average number of customers in waiting line for service</p>
+            <p>\[L_q= {{(&lambda;/&mu;)^2}\over2(1 - &lambda;/&mu;)}\]</p>
+            <p>W = average time a customer spends in the system (waiting line and being served)</p>
+            <p>\[W= {{&lambda;/&mu;^2}\over2(1 - &lambda;/&mu;)} + { 1\over&mu;}\]</p>
+            <p>W<sub>q</sub> = average time a customer spends waiting in line waiting for service.</p>
+            <p>\[W_q= {{&lambda;/&mu;^2}\over2(1 - &lambda;/&mu;)}\]</p>
+            <p>
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#ExampleMd1" aria-expanded="false" aria-controls="collapseExample">
+                Example #1
+              </button>
+            </p>
+             <!--------- example Md1 ---------->
+             <div class="collapse" id="ExampleMd1">
+              <div class="card card-body">
+                <p>Garcia-Golding Recycling, Inc., collects and compacts aluminum cans and glass bottles in New York City.
+                  Its truck drivers currently wait an average of 15 minutes before emptying their loads for recycling. The cost
+                  of driver and truck time while they are in queues is valued at $60 per hour. A new automated compactor can
+                  be purchased to process truckloads at a constant rate of 12 trucks per hour (that is, 5 minutes per truck).
+                  Trucks arrive according to a Poisson distribution at an average rate of 8 per hour. If the new compactor is
+                  put in use, the cost will be amortized at a rate of $3 per truck unloaded. The firm hires a summer college
+                  intern, who conducts the following analysis to evaluate the costs versus benefits of the purchase:
+                </p>
+                <p class="examples">
+                Current waiting cost/trip = (1/4 hr waiting now)($60/hr cost) = $15/trip</br>
+                New system:&emsp; <b>&lambda;</b> = 8 trucks/hr. arriving &emsp; <b>&mu;</b> = 12 trucks/hr served</br>
+                \[W_q= {{8/12^2}\over2(1 - 8/12)} = {8/114\over2/3} = {1\over12}\]
+                <b>W<sub>q</sub></b> = .0833 hours or 5min. average wait time in queue </br>
+                </p>
+                <table class="center">
+                  <tr>
+                    <td>Waiting cost/trip with the new compactor = (1/12 hr wait)($60/hr cost)</td>
+                    <td>= $ 5/trip</td>
+                  </tr>
+                  <tr>
+                    <td>Saving with new equipment = $15 (current system) - $5(new system)</td>
+                    <td>= $10/trip</td>
+                  </tr>
+                  <tr>
+                    <td>Cost of new equipment amortized:</td>
+                    <td>= $ 3/trip</td>
+                  </tr>
+                  <tr>
+                    <td>Net Savings:</td>
+                    <td>= $ 7/trip</td>
+                  </tr>
+                </table>
+              </div>
+            </div> 
+            <br>
+
+          <!------ practice ------>
+          <p class="title2">Practice</p>
+          <div class="accordion" id="accordionExampleMd1">
+            <div class="card">
+              <div class="card-header" id="headingOneMd1">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneMd1" aria-expanded="true" aria-controls="collapseOne">
+                    Exercise #1
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOneMd1" class="collapse" aria-labelledby="headingOneMd1" data-parent="#accordionExampleMd1">
+                
+                  <div class="card-body">
+                    <form name="Md1form">
+                      Wagner's Bank is the only bank in the small town of Regen. On a typical Friday, an average of 15 Customers
+                      per hour arrive at the bank to transact business. There is only 2 tellers at the bank, and the average time
+                      required to transact business is 5min. Its is assumed that service times may be described by the exponential distribution.
+                      A single line would be used, and the customer at the front of the line would go to the first available bank teller. <br><br>
+                      a) Find the average number of customers waiting in line. <br>
+                      <input type="text" class="form-control col-sm-1" id="Md1ex00" required>
+                      b) Find the average number of customers in the bank. <br>
+                      <input type="text" class="form-control col-sm-1" id="Md1ex01" required>
+                      c) Find the average time (in hours) a customer waits until it is his or her turn. <br>
+                      <input type="text" class="form-control col-sm-1" id="Md1ex02" required>
+                      d) Find the average time (in hours) a customer spends in the bank. <br>
+                      <input type="text" class="form-control col-sm-1" id="Md1ex03" required>
+                      e) Find the probability that the bank is empty. <br>
+                      <input type="text" class="form-control col-sm-1" id="Md1ex04" required></br>
+                      <button type="button" class="btn btn-primary" id="Completed1C" onclick="Md1ex0(form)" style="display:block">Check</button>
+                    </form>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwod1C">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwod1C" aria-expanded="false" aria-controls="collapseTwo">
+                    Exercise #2
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwoMd1" class="collapse" aria-labelledby="headingTwoMd1" data-parent="#accordionExampleMd1">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThreeMd1">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeMd1" aria-expanded="false" aria-controls="collapseThree">
+                    Exercise #3
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseThreeMd1" class="collapse" aria-labelledby="headingThreeMd1" data-parent="#accordionExampleMd1">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
           </div>
         </div>
       </div>

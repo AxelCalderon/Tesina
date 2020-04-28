@@ -1,14 +1,16 @@
 1. Work on Formula pages
-    do MD1 tab
+    finish MD1 tab
     practice show answers
-    maybe do optimization tab
-    maybe add paginations
+    * maybe do optimization tab
+    * maybe add paginations
 2. calculator
     popover if wrong input calculator page
-    Make it look better
     different units forms > select menu (in bootstrap page)
 3. Work on Main Page
+    fix image
 4. About me leave it for the end
+5. *  Maybe do simulation example
+
 
 to validate if calculator has things
 https://stackoverflow.com/questions/30317240/how-can-i-validate-multiple-fields-in-a-form-using-javascript

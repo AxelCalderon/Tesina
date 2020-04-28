@@ -40,3 +40,8 @@ p.imageLabel {
     width: 50%;
 }
 
+table.center {
+    table-layout: fixed;
+    width: 1000px;  
+    margin-left:15%; 
+}
