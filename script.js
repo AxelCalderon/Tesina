@@ -1,4 +1,4 @@
-// model selector buttons
+// Model selector buttons
 $('#selector button').click(function() {
     $(this).addClass('active').siblings().removeClass('active');
 
@@ -29,9 +29,8 @@ $('#selector button').click(function() {
 // calculator buttons
 var calcButton = document.getElementById("calcButton");
 
-//for
-var formTab = document.getElementById("formTab");
 
+var formTab = document.getElementById("formTab");
 var CTile = document.getElementById("CTile");
 var CTileText = document.getElementById("CTileText");
 
@@ -45,7 +44,11 @@ var resultWq = document.getElementById("resultWq");
 var resultRho = document.getElementById("resultRho");
 var resultPro = document.getElementById("resultProb");
 
-// Lessong Page excercises. 
+// Modal / Error Message
+
+var modal = document.getElementById("modalText");
+
+// Lesson Page excercises. 
 
 function MM1ex0(form) {
     var ans = [];
@@ -80,9 +83,8 @@ function MMCex0(form) {
     }
 }
 
+// Function Calculator
 function Calc(form) {
-
-    document.getElementById("resultTab").style.display = "block";
 
     var c = parseInt(document.form.C.value,10); // number of servers
     if (c!== c) {
@@ -93,6 +95,9 @@ function Calc(form) {
     var lamb = parseFloat(document.form.lamb.value, 10); // arrivals 
     var r = Math.round(r) // rounding number
 
+
+    
+    // input for probabilites
     let input = document.querySelector('input[target]');
 
     input.addEventListener('keyup', (e) => {
@@ -154,6 +159,51 @@ function Calc(form) {
 
     console.log("This is the model used right now: "+ model)
 
+    // // Validate the form 
+    if (isNaN(lamb)) {
+        $('#Modal').modal(focus);
+        modal.innerHTML = "Please enter correct value for λ";
+        return false;
+    } else {
+        document.getElementById("resultTab").style.display = "block"; // display results
+    }
+
+    if (isNaN(nu)) {
+        $('#Modal').modal(focus);
+        modal.innerHTML = "Please enter correct value for μ";
+        return false;
+    } else {
+        document.getElementById("resultTab").style.display = "block"; // display results
+    }
+
+    if (eval(model).rho >= 1) {
+        $('#Modal').modal(focus);
+        modal.innerHTML = "The queues will tend to infinity as λ is greater or equal than μ";
+        return false;
+    } else {
+        document.getElementById("resultTab").style.display = "block"; // display results
+    }
+    
+    // if (model == "mm1") {
+    //     if (mm1.rho > 1) {
+    //         $('#Modal').modal(focus);
+    //         modal.innerHTML = "The queues will tend to infinity as λ is greater or equal than μ";
+    //         return false;
+    //     } else {
+    //         document.getElementById("resultTab").style.display = "block"; // display results
+    //     }
+    // } else if (model == "mmc") {
+    //     if (mmc.rho > 1) {
+    //         $('#Modal').modal(focus);
+    //         modal.innerHTML = "The queues will tend to infinity as λ is greater or equal than μ";
+    //         return false;
+    //     } else {
+    //         document.getElementById("resultTab").style.display = "block"; // display results
+    //     }
+    // }
+    
+
+    //display results depending on the model
     switch (model) {
         case 'mm1':
             resultL.innerHTML = mm1.l;
@@ -221,7 +271,7 @@ function Calc(form) {
         return rounding(res);
     }
 
-    // calculates probabilities MD1
+    // Calculates probabilities MD1
     function probMD1() {
         res = 1 - (lamb/nu)
         return rounding(res);
@@ -258,7 +308,11 @@ function Calc(form) {
      * @param {int} option to convert
      * returns {float} result in option
      */
-    function unitConverter(hours, option) {
+    function unitConverter() {
+
+        hours = eval(model).w;
+        var option = 3;
+        console.log("show me the hours: " + hours)
         var perHours = [];
 
         perHours[0] = hours;  ///per hours
@@ -276,7 +330,7 @@ function Calc(form) {
     }
 
     // TEST STUFFF PLEASE REMOVE LATER
-    unitConverter(4.3,2);
+    unitConverter();
 
 
     // Utilities
