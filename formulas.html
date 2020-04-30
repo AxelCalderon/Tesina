@@ -65,6 +65,7 @@
           <a class="nav-link" id="v-pills-mm1-tab" data-toggle="pill" href="#v-pills-mm1" role="tab" aria-controls="v-pills-mm1" aria-selected="false">M/M/1 Queue</a>
           <a class="nav-link" id="v-pills-mmc-tab" data-toggle="pill" href="#v-pills-mmc" role="tab" aria-controls="v-pills-mmc" aria-selected="false">M/M/c Queue</a>
           <a class="nav-link" id="v-pills-md1-tab" data-toggle="pill" href="#v-pills-md1" role="tab" aria-controls="v-pills-md1" aria-selected="false">M/D/1 Queue</a>
+          <a class="nav-link" id="v-pills-optimization-tab" data-toggle="pill" href="#v-pills-optimization" role="tab" aria-controls="v-pills-optimization" aria-selected="false">Optimization</a>
         </div>
       </div>
       <div class="col-9">
@@ -79,7 +80,7 @@
               The order for a line queue is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
             <img src="/images/Untitled-2.png" class="container"><br><br>
             <p class="title2"> Stability Condition:</p>
-            <p>A queue is stable, when it does not grow to become infinite over time. The single-server queue is stable if on the average,
+            <p>A queue is stable, when it does not grow to become infinite over time. For example, the single-server queue is stable if on the average,
                the service time is less than the inter-arrival time.</p>
             <p style="text-align: center;"> Mean service time < mean inter-arrival time</p>
             Example:
@@ -171,6 +172,7 @@
         <!----- MM1 tab -------------->  
 
           <div class="tab-pane fade" id="v-pills-mm1" role="tabpanel" aria-labelledby="v-pills-mm1-tab">
+            <h1>M/M/1: Single Channel Queueing System</h1>
             <p>M/M/1 queueing system is the simplest queueing system, a single channel waiting line, where arrivals form a single line 
               to be served by a single station. The requests arrive according to a Poisson process with rate &lambda;, 
               that it's the interarrival times are independent, exponentially distributed random variables with parameter &lambda;. The service times are 
@@ -181,6 +183,9 @@
               using M/M/1 queues. <br>Example: 3 servers with 3 queues would be denoted as 3(M/M/1).</p>
             <img src="images/3MM1-03.png"  width="450" height="180" class="center"><br>
             <p class="title1">Analysis of the System</p>
+            <p class="title2"> Stability Condition:</p>
+            <p>\[&rho; = {&lambda;\over &mu;} < 1\] </p>
+            <p>As long as the server utilization is below 1, the queue system is stable.</p>
             <p class="title2">Input:</p>
             <p>&lambda; = mean number of arrivals per time period</p>
             <p>&mu; = mean number of people or items served per time period</p>
@@ -302,6 +307,7 @@
         <!--------- MMC tab ------------>
         
           <div class="tab-pane fade" id="v-pills-mmc" role="tabpanel" aria-labelledby="v-pills-mmc-tab">
+            <h1>M/M/c: Multiple-Channel Queueing System</h1>
             <p>M/M/c is a queueing system with a single queue handeled by multiple servers or channels. 
               We still assume that arrivals follow a Poisson probabilityand that service time are exponentially distributed.</br>
               Something to note is that M/M/c is pretty similar to M/M/1 and it's important to learn the difference between them. 
@@ -314,6 +320,9 @@
                 size is reached, that customer must be rejected from the system. This models won't be covered in this module, but its good to know that it exists. 
             </p>
             <p class="title1">Analysis of the System</p>
+            <p class="title2"> Stability Condition:</p>
+            <p>\[&rho; = {&lambda;\over &mu;c} < 1\] </p>
+            <p>As long as the server utilization is below 1, the queue system is stable.</p>
             <p class="title2">Input:</p>
             <p>&lambda; = mean number of arrivals per time period</p>
             <p>&mu; = mean number of people or items served per time period</p>
@@ -444,6 +453,7 @@
         <!--------- MD1 tab ------------>
 
           <div class="tab-pane fade" id="v-pills-md1" role="tabpanel" aria-labelledby="v-pills-md1-tab">
+            <h1>M/D/1: Constant Service Time System</h1>
             <p>M/D/1 is a queueing system with a single queue and single server, where arrivals are determined by Poisson process and 
               servive times are fixed(deterministic). Some service systems have constant service times, instead of exponentially distributed,
               this are the ones covered in M/D/1 queueing system. When customers or equipment are processed according to a fixed cycle,
@@ -452,6 +462,9 @@
             </p>
             <img src="/images/singleServerSinglePhase-01.png" class="container">
             <p class="title1">Analysis of the System</p>
+            <p class="title2"> Stability Condition:</p>
+            <p>\[&rho; = {&lambda;\over &mu;} < 1\] </p>
+            <p>As long as the server utilization is below 1, the queue system is stable.</p>
             <p class="title2">Input:</p>
             <p>&lambda; = mean number of arrivals per time period</p>
             <p>&mu; = mean number of people or items served per time period</p>
@@ -528,37 +541,39 @@
                 
                   <div class="card-body">
                     <form name="Md1form">
-                      Wagner's Bank is the only bank in the small town of Regen. On a typical Friday, an average of 15 Customers
-                      per hour arrive at the bank to transact business. There is only 2 tellers at the bank, and the average time
-                      required to transact business is 5min. Its is assumed that service times may be described by the exponential distribution.
-                      A single line would be used, and the customer at the front of the line would go to the first available bank teller. <br><br>
-                      a) Find the average number of customers waiting in line. <br>
+                      Customers arrive at an automated coffee-vending machine at a rate of four per minute, following a Poisson distribution.
+                      The coffee machine dispenses cups of coffee at a constant time of 10 seconds.<br><br>
+                      a) What is the average number of people waiting in line? <br>
                       <input type="text" class="form-control col-sm-1" id="Md1ex00" required>
-                      b) Find the average number of customers in the bank. <br>
+                      b) What is the average number of people in the system? <br>
                       <input type="text" class="form-control col-sm-1" id="Md1ex01" required>
-                      c) Find the average time (in hours) a customer waits until it is his or her turn. <br>
-                      <input type="text" class="form-control col-sm-1" id="Md1ex02" required>
-                      d) Find the average time (in hours) a customer spends in the bank. <br>
-                      <input type="text" class="form-control col-sm-1" id="Md1ex03" required>
-                      e) Find the probability that the bank is empty. <br>
-                      <input type="text" class="form-control col-sm-1" id="Md1ex04" required></br>
-                      <button type="button" class="btn btn-primary" id="Completed1C" onclick="Md1ex0(form)" style="display:block">Check</button>
+                      c) How long does the average person wait in line before receiving service? (In seconds) decimals<br>
+                      <input type="text" class="form-control col-sm-1" id="Md1ex02" required><br>
+                      <button type="button" class="btn btn-primary" id="CompleteMd1" onclick="Md1ex0(form)" style="display:block">Check</button>
                     </form>
                   </div>
                 </form>
               </div>
             </div>
             <div class="card">
-              <div class="card-header" id="headingTwod1C">
+              <div class="card-header" id="headingTwoMd1">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwod1C" aria-expanded="false" aria-controls="collapseTwo">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoMd1" aria-expanded="false" aria-controls="collapseTwo">
                     Exercise #2
                   </button>
                 </h5>
               </div>
               <div id="collapseTwoMd1" class="collapse" aria-labelledby="headingTwoMd1" data-parent="#accordionExampleMd1">
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  <form name="Md1form2">	
+                    Muñoz’s Car Wash takes a constant time of 5 minutes in its automated car wash cycle. Autos arrive	
+	                  following a Poisson distribution at the rate of 10 per hour. Muñoz wants to know:<br><br>	
+	                  a) What is the average waiting time in line?<br>
+                    <input type="text" class="form-control col-sm-1" id="Md1ex10" required>	
+                    b) What is the average length of the line? <br>	
+                    <input type="text" class="form-control col-sm-1" id="Md1ex11" required>	<br>
+                    <button type="button" class="btn btn-primary" id="CompleteMd1B" onclick="Md1ex1(form)" style="display:block">Check</button>	
+                  </form>
                 </div>
               </div>
             </div>
@@ -579,7 +594,12 @@
           </div>
           </div>
 
-          </div>
+        <!--------- Optimization tab -->
+          
+        <div class="tab-pane fade show active" id="v-pills-optimization" role="tabpanel" aria-labelledby="v-pills-optimization-tab">
+          <h1>Optimization</h1>
+        </div>
+
         </div>
       </div>
     </div>

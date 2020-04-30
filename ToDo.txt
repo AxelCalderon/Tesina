@@ -1,11 +1,8 @@
 1. Work on Formula pages
-    add stability conditions for all modes
-    finish MD1 tab
     practice show answers
-    * maybe do optimization tab
-    * maybe add paginations
+    do optimization tab
 2. calculator
-    different units forms > select menu (in bootstrap page)
+    * different units forms > select menu (in bootstrap page)
 3. Work on Main Page
     fix image
 4. About me leave it for the end

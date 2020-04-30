@@ -83,6 +83,40 @@ function MMCex0(form) {
     }
 }
 
+function Md1ex0(form) {
+
+    var ans = [];
+    var result = [0.67,1.33,0.0028]; //answers for MMCex0
+
+    for (i=0; i < 3; i++) {
+        ans[i] = parseFloat(document.Md1form[i].value)
+        console.log(ans[i])
+
+        if (ans[i] == result[i]) {
+            document.getElementById("Md1ex0" + i.toString()).className = 'form-control col-sm-1 border-success';
+        } else {
+            document.getElementById("Md1ex0" + i.toString()).className = 'form-control col-sm-1 border-danger';
+        }
+    }
+}
+
+function Md1ex1(form) {
+
+    var ans = [];
+    var result = [0.20,2.08]; //answers for MMCex1
+
+    for (i=0; i < 2; i++) {
+        ans[i] = parseFloat(document.Md1form2[i].value)
+        console.log(ans[i])
+
+        if (ans[i] == result[i]) {
+            document.getElementById("Md1ex1" + i.toString()).className = 'form-control col-sm-1 border-success';
+        } else {
+            document.getElementById("Md1ex1" + i.toString()).className = 'form-control col-sm-1 border-danger';
+        }
+    }
+}
+
 // Function Calculator
 function Calc(form) {
 
@@ -91,7 +125,7 @@ function Calc(form) {
         c = 0;
     }
     var k = 0; // queue capacity
-    var nu = parseFloat(document.form.nu.value, 10); // services
+    var mu = parseFloat(document.form.nu.value, 10); // services
     var lamb = parseFloat(document.form.lamb.value, 10); // arrivals 
     var r = Math.round(r) // rounding number
 
@@ -107,7 +141,7 @@ function Calc(form) {
 
             switch (model) {
                 case 'mm1':
-                    x = rounding( (1 - (lamb/nu)) * Math.pow((lamb/nu),n));
+                    x = rounding( (1 - (lamb/mu)) * Math.pow((lamb/mu),n));
                     resultPro.innerHTML = x;
                     break;
                 case 'mmc':
@@ -115,10 +149,10 @@ function Calc(form) {
                         x = probMMK(c);
                         console.log("show this message #1: " + x )
                     } else if (n <= c) {
-                        x = (Math.pow((lamb/nu),n)/factorial(n)) * probMMK(c);
+                        x = (Math.pow((lamb/mu),n)/factorial(n)) * probMMK(c);
                         console.log("show this message #2: " + x )
                     } else {
-                        x = Math.pow((lamb/nu),n)/(factorial(c)* Math.pow(c,(n-c))) * probMMK(c);
+                        x = Math.pow((lamb/mu),n)/(factorial(c)* Math.pow(c,(n-c))) * probMMK(c);
                         console.log("show this message #3: " + x )
                     }
                     resultPro.innerHTML = rounding(x);
@@ -129,12 +163,12 @@ function Calc(form) {
     
     var mm1 =  {
         model: mm1,
-        w: rounding(-(1/(lamb - nu))),
-        wq: rounding(lamb/(nu * (nu - lamb))),
-        l: rounding(lamb/(nu - lamb)),
-        lq: rounding(((Math.pow(lamb,2))/(nu * (nu - lamb)))),
-        prob: rounding(res = 1 - (lamb/nu)),
-        rho: rounding(lamb/nu)
+        w: rounding(-(1/(lamb - mu))),
+        wq: rounding(lamb/(mu * (mu - lamb))),
+        l: rounding(lamb/(mu - lamb)),
+        lq: rounding(((Math.pow(lamb,2))/(mu * (mu - lamb)))),
+        prob: rounding(res = 1 - (lamb/mu)),
+        rho: rounding(lamb/mu)
     };
 
     var mmc = {
@@ -144,8 +178,8 @@ function Calc(form) {
         l: lMMK(),
         lq: lqMMK(),
         prob: probMMK(c),
-        rho: rounding(lamb/(c * nu))
-    }
+        rho: rounding(lamb/(c * mu))
+    };
 
     var md1 = {
         model: md1,
@@ -154,8 +188,8 @@ function Calc(form) {
         l: lMD1(),
         lq: lqMD1(),
         prob: probMD1(),
-        rho: rounding(lamb/nu)
-    }
+        rho: rounding(lamb/mu)
+    };
 
     console.log("This is the model used right now: "+ model)
 
@@ -168,7 +202,7 @@ function Calc(form) {
         document.getElementById("resultTab").style.display = "block"; // display results
     }
 
-    if (isNaN(nu)) {
+    if (isNaN(mu)) {
         $('#Modal').modal(focus);
         modal.innerHTML = "Please enter correct value for μ";
         return false;
@@ -183,25 +217,6 @@ function Calc(form) {
     } else {
         document.getElementById("resultTab").style.display = "block"; // display results
     }
-    
-    // if (model == "mm1") {
-    //     if (mm1.rho > 1) {
-    //         $('#Modal').modal(focus);
-    //         modal.innerHTML = "The queues will tend to infinity as λ is greater or equal than μ";
-    //         return false;
-    //     } else {
-    //         document.getElementById("resultTab").style.display = "block"; // display results
-    //     }
-    // } else if (model == "mmc") {
-    //     if (mmc.rho > 1) {
-    //         $('#Modal').modal(focus);
-    //         modal.innerHTML = "The queues will tend to infinity as λ is greater or equal than μ";
-    //         return false;
-    //     } else {
-    //         document.getElementById("resultTab").style.display = "block"; // display results
-    //     }
-    // }
-    
 
     //display results depending on the model
     switch (model) {
@@ -235,71 +250,73 @@ function Calc(form) {
 
         n = 0 // 
         for(i = 0; i < c; i++) {
-            n += ((1/factorial(i)) * Math.pow((lamb/nu),i))
+            n += ((1/factorial(i)) * Math.pow((lamb/mu),i))
         }
 
-        res = 1 / (n + (1/factorial(c)) * (Math.pow(lamb/nu,c))
-         * ((c * nu) / ((c * nu) - lamb)))
+        res = 1 / (n + (1/factorial(c)) * (Math.pow(lamb/mu,c))
+         * ((c * mu) / ((c * mu) - lamb)))
         return rounding(res);
     }
 
     // calculates MMK L
     function lMMK() {
-        res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1))
-         * Math.pow(c * nu - lamb, 2)) * probMMK(c) + lamb/nu
+        res = (Math.pow(lamb/mu,c) * lamb * mu) / ((factorial(c - 1))
+         * Math.pow(c * mu - lamb, 2)) * probMMK(c) + lamb/mu
         return rounding(res);
     }
 
     // calculates MMK Lq
     function lqMMK() {
-        res = (Math.pow(lamb/nu,c) * lamb * nu) / ((factorial(c - 1))
-         * Math.pow(c * nu - lamb, 2)) * probMMK(c)
+        res = (Math.pow(lamb/mu,c) * lamb * mu) / ((factorial(c - 1))
+         * Math.pow(c * mu - lamb, 2)) * probMMK(c)
         return rounding(res);
     }
 
     // calculates MMK W
     function wMMK() {
-        res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1))
-         * Math.pow(c * nu - lamb, 2)) * probMMK(c) + 1/nu
+        res = (Math.pow(lamb/mu,c) * mu) / ((factorial(c - 1))
+         * Math.pow(c * mu - lamb, 2)) * probMMK(c) + 1/mu
         return rounding(res);
     }
     
     // calculates MMK Wq
     function wqMMK() {
-        res = (Math.pow(lamb/nu,c) * nu) / ((factorial(c - 1))
-         * Math.pow(c * nu - lamb, 2)) * probMMK(c)
+        res = (Math.pow(lamb/mu,c) * mu) / ((factorial(c - 1))
+         * Math.pow(c * mu - lamb, 2)) * probMMK(c)
         return rounding(res);
     }
 
     // Calculates probabilities MD1
     function probMD1() {
-        res = 1 - (lamb/nu)
+        res = 1 - (lamb/mu)
         return rounding(res);
     }
 
     // Calculates L MD1 
     function lMD1() {
-        res = (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu))) + lamb/nu;
+        res = (Math.pow(lamb/mu,2))/(2 * (1 - (lamb/mu))) + lamb/mu;
         return rounding(res);
     }
 
     // Calculates Lq MD1 
     function lqMD1() {
-        res = (Math.pow(lamb/nu,2))/(2 * (1 - (lamb/nu)));
+        res = (Math.pow(lamb/mu,2))/(2 * (1 - (lamb/mu)));
         return rounding(res);
     }
 
     // Calculates w MD1 
     function wMD1() {
-        res = (lamb/Math.pow(nu,2))/(2 * (1 - (lamb/nu))) + 1/nu;
+        res = (lamb/Math.pow(mu,2))/(2 * (1 - (lamb/mu))) + 1/mu;
         return rounding(res);
     }
 
     // Calculates Wq MD1 
     function wqMD1() {
-        res = (lamb/Math.pow(nu,2))/(2 * (1 - (lamb/nu)))
+        res = (lamb/Math.pow(mu,2))/(2 * (1 - (lamb/mu)))
         return rounding(res);
     }
+
+    // Utilities
 
     // Time Converter
     
@@ -331,9 +348,6 @@ function Calc(form) {
 
     // TEST STUFFF PLEASE REMOVE LATER
     unitConverter();
-
-
-    // Utilities
 
     // Rounding to 4 decimal points 
     function rounding(n){
