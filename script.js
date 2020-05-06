@@ -9,19 +9,16 @@ $('#selector button').click(function() {
         formTab.style.display = "block";
         calcButton.style.display = "block";
         CTile.style.display = "none";
-        CTileText.style.display = "none";
     } else if (this.id == 'mmcbutton') {
         model = 'mmc';
         formTab.style.display = "block";
         CTile.style.display = "block";
-        CTileText.style.display = "block";
         calcButton.style.display = "block";
     } else {
         model = 'md1';
         formTab.style.display = "block";
         calcButton.style.display = "block";
         CTile.style.display = "none";
-        CTileText.style.display = "none";
     }
     return model;
 });
@@ -48,11 +45,19 @@ var resultPro = document.getElementById("resultProb");
 
 var modal = document.getElementById("modalText");
 
-// Lesson Page excercises. 
 
+
+//Display Answers
+function displayAns(elem) {
+    
+    x = elem.id;
+    document.getElementById(x).style.display = "block";
+}
+
+// Lesson Page excercises. 
 function MM1ex0(form) {
     var ans = [];
-    var result = [0.9,1.5,0.3,0.5,0.6]; //answers for MM1ex0
+    var result = [0.9,1.5,0.3,0.5,60]; //answers for MM1ex0
 
     for (i=0; i < 5; i++) {
         ans[i] = parseFloat(document.MM1form[i].value)
@@ -69,7 +74,7 @@ function MM1ex0(form) {
 function MMCex0(form) {
 
     var ans = [];
-    var result = [0.80,2.05,0.5,0.13,.52]; //answers for MMCex0
+    var result = [0.80,2.05,0.5,0.13,.23]; //answers for MMCex0
 
     for (i=0; i < 5; i++) {
         ans[i] = parseFloat(document.MMCform[i].value)
@@ -211,9 +216,15 @@ function Calc(form) {
     }
 
     if (eval(model).rho >= 1) {
-        $('#Modal').modal(focus);
-        modal.innerHTML = "The queues will tend to infinity as λ is greater or equal than μ";
-        return false;
+        if (model == 'mm1' || model == 'md1') {
+            $('#Modal').modal(focus);
+            modal.innerHTML = "The queues will tend to infinity as λ is greater or equal than μ";
+            return false;
+        } else {
+            $('#Modal').modal(focus);
+            modal.innerHTML = "The queues will tend to infinity as ρ is greater or equal to 1";
+            return false;
+        }
     } else {
         document.getElementById("resultTab").style.display = "block"; // display results
     }
@@ -274,8 +285,8 @@ function Calc(form) {
 
     // calculates MMK W
     function wMMK() {
-        res = (Math.pow(lamb/mu,c) * mu) / ((factorial(c - 1))
-         * Math.pow(c * mu - lamb, 2)) * probMMK(c) + 1/mu
+        res = (Math.pow(lamb/mu,c) * mu / (factorial(c - 1)
+         * Math.pow(c * mu - lamb, 2))) * probMMK(c) + 1/mu
         return rounding(res);
     }
     

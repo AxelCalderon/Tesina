@@ -267,7 +267,29 @@
                         <input type="text" class="form-control col-sm-1" id="MM1ex03" required>
                         e) Find the percentage of time that Paul is busy. <br>
                         <input type="text" class="form-control col-sm-1" id="MM1ex04" required></br>
-                        <button type="button" class="btn btn-primary" id="CompleteMM1" onclick="MM1ex0(form)" style="display:block">Check</button>
+                        <div class="container row">
+                          <button type="button" class="btn btn-primary" id="CompleteMM1" onclick="MM1ex0(form)" style="display:block; margin-right: 10px;">Check</button>
+                          <button type="button" class="btn btn-success" id="AnswersMM1" style="display:block" onclick="displayAns(MM1ex0Ans)">Answers</button>
+                        </div>
+                        <div id="MM1ex0Ans" class="alert alert-warning alert-dismissible fade show" role="alert" style="display: none; margin-top:10px">
+                          <p class="examples">
+                            <b>&lambda;</b> = 3 customers per hour</br>
+                            <b>&mu;</b> = 5 haircuts per hour</br>
+                            \[L_q = {&lambda;^2\over{({&mu;( {&mu; - &lambda;}}}))} = {3^2\over{({5( {5 - 3}}}))} = {9\over10} \]
+                            <b>L<sub>q</sub></b> = 0.9 customers waiting in line, on average
+                            \[L = {&lambda;\over {&mu; - &lambda;}} = {3\over {5 - 3}} = {3\over2}\]
+                            <b>L</b> = 1.5 customers in the system, on average </br>
+                            \[W_q = {&lambda;\over{({&mu;( {&mu; - &lambda;}}}))} = {3\over{({5( {5 - 3}}}))} = {3\over10}\]
+                            <b>W<sub>q</sub></b> = .3 hours (18min.) average waiting time per customer in queue
+                            \[W = {1\over {&mu; - &lambda;}} = {1\over {5 - 3}} = {1\over2}\]
+                            <b>W</b> = .5 hour (30min.) average waiting time in the Styling Shop
+                            \[&rho; = {&lambda;\over &mu;} = {3\over 5} \]
+                            <b>&rho;</b> = 60% of the time the mechanic is busy
+                          </p>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
                       </form>
                     </div>
                   </form>
@@ -342,9 +364,9 @@
             <p>L<sub>q</sub> = average number of customers in waiting line for service</p>
             <p>\[L_q= {({&lambda;/ &mu;})^c{&lambda;&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0}\]</p>
             <p>W = average time a customer spends in the system (waiting line and being served)</p>
-            <p>\[W = {({&lambda;/ &mu;})^c{&lambda;&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0} + {1\over &mu;}\]</p>
+            <p>\[W = {({&lambda;/ &mu;})^c{&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0} + {1\over &mu;} = {L\over&lambda;} \]</p>
             <p>W<sub>q</sub> = average time a customer spends waiting in line waiting for service.</p>
-            <p>\[W_q = {({&lambda;/ &mu;})^c{&lambda;&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0}\]</p>
+            <p>\[W_q = {({&lambda;/ &mu;})^c{&mu;}\over {(c - 1 ) !(&mu;c - &lambda;)^2}}{P_0} = {L_q\over&lambda;}\]</p>
             <p>
               <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#ExampleMMc" aria-expanded="false" aria-controls="collapseExample">
                 Example #1
@@ -374,9 +396,9 @@
                     \[L_q= {({2/ 3})^2{2(3)}\over {(2 - 1 ) !(2(3) - 2)^2}}\left({1\over2}\right)\]
                     \[L_q = {8/3\over16}\left({1\over2}\right) = {8/3\over32} = { 1\over 12}\]
                     <b>L<sub>q</sub></b> = .083 cars waiting in line, on average
-                    \[W = {L\over &mu;} = {3/4\over 2} = {3\over 8}hour\]
+                    \[W = {L\over &lambda;} = {3/4\over 2} = {3\over 8}hour\]
                     <b>W</b> = 22.5 minutes average waiting time in the system
-                    \[W_q = {L_q\over &mu;} = {1/12\over 2} = {1\over 24}hour\]
+                    \[W_q = {L_q\over &lambda;} = {1/12\over 2} = {1\over 24}hour\]
                     <b>W<sub>q</sub></b> = 2.5 minutes average waiting time per car in the queue
                   </p>
               </div>
@@ -413,7 +435,34 @@
                       <input type="text" class="form-control col-sm-1" id="MMCex03" required>
                       e) Find the probability that the bank is empty. <br>
                       <input type="text" class="form-control col-sm-1" id="MMCex04" required></br>
-                      <button type="button" class="btn btn-primary" id="CompleteMMC" onclick="MMCex0(form)" style="display:block">Check</button>
+                      <div class="container row">
+                        <button type="button" class="btn btn-primary" id="CompleteMMC" onclick="MMCex0(form)" style="display:block; margin-right: 10px;">Check</button>
+                        <button type="button" class="btn btn-success" id="AnswersMMC" style="display:block" onclick="displayAns(MMCex0Ans)">Answers</button>
+                      </div>
+                      <div id="MMCex0Ans" class="alert alert-warning alert-dismissible fade show" role="alert" style="display: none; margin-top:10px">
+                        <p class="examples">
+                          <b>&lambda;</b> = 15 customers arrive per hour</br>
+                          <b>&mu;</b> = 5 min. per transaction =  12 transactions per hour</br>
+                          <b>c</b> = 2 bank tellers
+                          \[P_0 = {1\over \left[ {\sum_{n=0}^{1}} {1\over n!}{({15\over 12})^n}\right] + {1\over 2!}{({15\over 12})^2}{12(2)\over 12(2) - 15}}\]
+                          \[= {1\over \left[ 1 + {15\over12}\right] + {1\over 2}{({225\over 144})}{24\over 24 - 15}}\]
+                          \[= {1\over {9\over4}\ + {25\over 12}} = {3\over 13}\] 
+                          <b>P<sub>0</sub></b> = .23 probability there are 0 customers in the bank. </br>
+                          \[L_q= {({15/ 12})^2{15(12)}\over {(2 - 1 ) !(12(2) - 15)^2}}\left({3\over13}\right)\]
+                          \[L_q = {1125/4\over81}\left({3\over13}\right) = {125\over156}\]
+                          <b>L<sub>q</sub></b> = .8012 customers waiting in line, on average
+                          \[L= {({15/ 12})^2{15(12)}\over {(2 - 1 ) !(12(2) - 15)^2}}\left({3\over13}\right) + \left({15\over12}\right)\]
+                          \[L = {1125/4\over81}\left({3\over13}\right) + \left({15\over12}\right) = {80\over39}\]
+                          <b>L</b> = 2.05 cars in the system, on average </br>  
+                          \[W_q = {L_q\over &lambda;} = {125/156\over 15} = {25\over 468}hour\]
+                          <b>W<sub>q</sub></b> = .5 hours (30 min.) average waiting time in the queue
+                          \[W = {L\over &mu;} = {80/39\over 15} = {16\over 117}hour\]
+                          <b>W</b> = .13 hours (8 min.) minutes average waiting time in the Bank  
+                        </p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
                     </form>
                   </div>
                 </form>
@@ -596,7 +645,7 @@
 
         <!--------- Optimization tab -->
           
-        <div class="tab-pane fade show active" id="v-pills-optimization" role="tabpanel" aria-labelledby="v-pills-optimization-tab">
+        <div class="tab-pane fade" id="v-pills-optimization" role="tabpanel" aria-labelledby="v-pills-optimization-tab">
           <h1>Optimization</h1>
         </div>
 
