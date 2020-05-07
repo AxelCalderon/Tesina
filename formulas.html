@@ -52,11 +52,22 @@
   <div class="jumbotron" style="padding-bottom: 10px;">
     <div class="container" >
         <h1 class="display-4">Queueing Theory Lessons</h1>
-        <p class="lead" >Choose a lesson</p>
+        <p class="lead">Choose a lesson:</p>
     </div>
   </div>
 
   <div class="container" style="padding-bottom: 30px;">
+
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-bottom: 25px;">
+        <a class="nav-item nav-link active" id="nav-queueing-tab" data-toggle="tab" href="#v-pills-queueing" role="tab" aria-controls="nav-queueing" aria-selected="true">Queueing Model</a>
+        <a class="nav-item nav-link" id="v-pills-kendall-tab" data-toggle="tab" href="#v-pills-kendall" role="tab" aria-controls="nav-kendall" aria-selected="false">Kendall's Notation</a>
+        <a class="nav-item nav-link" id="nav-mm1-tab" data-toggle="tab" href="#v-pills-mm1" role="tab" aria-controls="nav-mm1" aria-selected="false">M/M/1 Queue</a>
+        <a class="nav-item nav-link" id="nav-mmc-tab" data-toggle="tab" href="#v-pills-mmc" role="tab" aria-controls="nav-mmc" aria-selected="false">M/M/C Queue</a>
+        <a class="nav-item nav-link" id="nav-md1-tab" data-toggle="tab" href="#v-pills-md1" role="tab" aria-controls="nav-md1" aria-selected="false">M/D/1 Queue</a>
+      </div>
+    </nav>
+
     <div class="row">
       <div id="col3" class="col-md-3 col-sm-1">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -78,6 +89,7 @@
         <!---- Queueing Model tab -------->
 
           <div class="tab-pane fade show active" id="v-pills-queueing" role="tabpanel" aria-labelledby="v-pills-queueing-tab">
+            <h1>Queueing Models</h1>
             <p>The basic queueing model it's just a queue line and server. Waiting line queue is where the customers form a waiting line. 
               The order for a line queue is usually first in first served. A queue is formed when customers arrive faster than they can get served. <br><br>
             <img src="/images/Untitled-2.png" class="container"><br><br>
@@ -156,6 +168,7 @@
         <!---------- Kendall tab --------------->
 
           <div class="tab-pane fade" id="v-pills-kendall" role="tabpanel" aria-labelledby="v-pills-kendall-tab">
+            <h1>Kendall's Notation</h1>
             <p>Kendall introduced a shorthand notation to characterize a range of these queueing models:</p>
             <p><em>A / B / c / K / n / D,</em></p>
             <p>Where</p>

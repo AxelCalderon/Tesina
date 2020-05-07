@@ -50,4 +50,10 @@ table.center {
     #v-pills-tab {
         display:none;
     }
-  }
+}
+
+@media screen and (min-width:750px){
+    #nav-tab {
+        display:none;
+    }
+}
