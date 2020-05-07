@@ -1,8 +1,6 @@
 1. Work on Formula pages
-    practice show answers
     do optimization tab
 2. calculator
-    * different units forms > select menu (in bootstrap page)
 3. Work on Main Page
     fix image
 4. About me leave it for the end

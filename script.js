@@ -23,9 +23,9 @@ $('#selector button').click(function() {
     return model;
 });
 
+
 // calculator buttons
 var calcButton = document.getElementById("calcButton");
-
 
 var formTab = document.getElementById("formTab");
 var CTile = document.getElementById("CTile");
@@ -44,8 +44,6 @@ var resultPro = document.getElementById("resultProb");
 // Modal / Error Message
 
 var modal = document.getElementById("modalText");
-
-
 
 //Display Answers
 function displayAns(elem) {
