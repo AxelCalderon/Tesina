@@ -30,8 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home
-            </a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="calculator.html">Calculator</a>
@@ -49,7 +48,7 @@
 
   <!-------- Header -------->
 
-  <div class="jumbotron" style="padding-bottom: 10px;">
+  <div class="jumbotron" style="padding-bottom: 10px; padding-top: 60px;">
     <div class="container" >
         <h1 class="display-4">Queueing Theory Lessons</h1>
         <p class="lead">Choose a lesson:</p>
@@ -273,15 +272,15 @@
                         Customers arrive at Paul Harrold's Styling Shop at a rate of 3 per hour, distributed in a Possion fashion.
                         Paul can perform haircuts at a rate of 5 per hour, distributed exponentially.<br><br>
                         a) Find the average number of customers waiting for haircuts. <br>
-                        <input type="text" class="form-control col-sm-1" id="MM1ex00" required>
+                        <input type="text" class="form-control col-lg-1 col-md-2" id="MM1ex00" required>
                         b) Find the average number of customers in the shop. <br>
-                        <input type="text" class="form-control col-sm-1" id="MM1ex01" required>
+                        <input type="text" class="form-control col-lg-1 col-md-2" id="MM1ex01" required>
                         c) Find the average time (in hours) a customer waits until it is his or her turn. <br>
-                        <input type="text" class="form-control col-sm-1" id="MM1ex02" required>
+                        <input type="text" class="form-control col-lg-1 col-md-2" id="MM1ex02" required>
                         d) Find the average time (in hours) a customer spends in the shop. <br>
-                        <input type="text" class="form-control col-sm-1" id="MM1ex03" required>
+                        <input type="text" class="form-control col-lg-1 col-md-2" id="MM1ex03" required>
                         e) Find the percentage of time that Paul is busy. <br>
-                        <input type="text" class="form-control col-sm-1" id="MM1ex04" required></br>
+                        <input type="text" class="form-control col-lg-1 col-md-2" id="MM1ex04" required></br>
                         <div class="container row">
                           <button type="button" class="btn btn-primary" id="CompleteMM1" onclick="MM1ex0(form)" style="display:block; margin-right: 10px;">Check</button>
                           <button type="button" class="btn btn-success" id="AnswersMM1" style="display:block" onclick="displayAns(MM1ex0Ans)">Answers</button>
@@ -441,15 +440,15 @@
                       required to transact business is 5min. Its is assumed that service times may be described by the exponential distribution.
                       A single line would be used, and the customer at the front of the line would go to the first available bank teller. <br><br>
                       a) Find the average number of customers waiting in line. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMCex00" required>
+                      <input type="text" class="form-control col-lg-1 col-md-2" id="MMCex00" required>
                       b) Find the average number of customers in the bank. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMCex01" required>
+                      <input type="text" class="form-control col-lg-1 col-md-2" id="MMCex01" required>
                       c) Find the average time (in hours) a customer waits until it is his or her turn. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMCex02" required>
+                      <input type="text" class="form-control col-lg-1 col-md-2" id="MMCex02" required>
                       d) Find the average time (in hours) a customer spends in the bank. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMCex03" required>
+                      <input type="text" class="form-control col-lg-1 col-md-2" id="MMCex03" required>
                       e) Find the probability that the bank is empty. <br>
-                      <input type="text" class="form-control col-sm-1" id="MMCex04" required></br>
+                      <input type="text" class="form-control col-lg-1 col-md-2" id="MMCex04" required></br>
                       <div class="container row">
                         <button type="button" class="btn btn-primary" id="CompleteMMC" onclick="MMCex0(form)" style="display:block; margin-right: 10px;">Check</button>
                         <button type="button" class="btn btn-success" id="AnswersMMC" style="display:block" onclick="displayAns(MMCex0Ans)">Answers</button>
@@ -468,7 +467,7 @@
                           <b>L<sub>q</sub></b> = .8012 customers waiting in line, on average
                           \[L= {({15/ 12})^2{15(12)}\over {(2 - 1 ) !(12(2) - 15)^2}}\left({3\over13}\right) + \left({15\over12}\right)\]
                           \[L = {1125/4\over81}\left({3\over13}\right) + \left({15\over12}\right) = {80\over39}\]
-                          <b>L</b> = 2.05 cars in the system, on average </br>  
+                          <b>L</b> = 2.05 customers in the bank, on average </br>  
                           \[W_q = {L_q\over &lambda;} = {125/156\over 15} = {25\over 468}hour\]
                           <b>W<sub>q</sub></b> = .5 hours (30 min.) average waiting time in the queue
                           \[W = {L\over &mu;} = {80/39\over 15} = {16\over 117}hour\]
@@ -608,11 +607,11 @@
                       Customers arrive at an automated coffee-vending machine at a rate of four per minute, following a Poisson distribution.
                       The coffee machine dispenses cups of coffee at a constant time of 10 seconds.<br><br>
                       a) What is the average number of people waiting in line? <br>
-                      <input type="text" class="form-control col-sm-1" id="Md1ex00" required>
+                      <input type="text" class="form-control col-lg-1 col-md-2" id="Md1ex00" required>
                       b) What is the average number of people in the system? <br>
-                      <input type="text" class="form-control col-sm-1" id="Md1ex01" required>
+                      <input type="text" class="form-control col-lg-1 col-md-2" id="Md1ex01" required>
                       c) How long does the average person wait in line before receiving service? (In seconds) decimals<br>
-                      <input type="text" class="form-control col-sm-1" id="Md1ex02" required><br>
+                      <input type="text" class="form-control col-lg-1 col-md-2" id="Md1ex02" required><br>
                       <button type="button" class="btn btn-primary" id="CompleteMd1" onclick="Md1ex0(form)" style="display:block">Check</button>
                     </form>
                   </div>
