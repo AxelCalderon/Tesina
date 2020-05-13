@@ -120,6 +120,67 @@ function Md1ex1(form) {
     }
 }
 
+Highcharts.chart('container', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Probability of Number in System'
+    },
+      xAxis: {
+      type: 'category',
+      labels: {
+        rotation: -45,
+        style: {
+          fontSize: '13px',
+          fontFamily: 'Verdana, sans-serif'
+        }
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Probability'
+      }
+    },
+    legend: {
+      enabled: false
+    },
+    tooltip: {
+      pointFormat: 'Probability: <b>{point.y:.3f}</b>'
+    },
+    series: [{
+      name: 'Number in System',
+      data: [
+        ['0', .25],
+        ['1', .1875],
+        ['2', .1406],
+        ['3', .1055],
+        ['4', .0791],
+        ['5', .0593],
+        ['6', .0445],
+        ['7', .0334],
+        ['8', .025],
+        ['9', .0188],
+        ['10', .0141],
+        ['11', .0106],
+        ['12', .0079]
+      ],
+      dataLabels: {
+        enabled: true,
+        rotation: -90,
+        color: '#FFFFFF',
+        align: 'right',
+        format: '{point.y:.3f}', // three decimal
+        y: 10, // 10 pixels down from the top
+        style: {
+          fontSize: '13px',
+          fontFamily: 'Verdana, sans-serif'
+        }
+      }
+    }]
+  });
+
 // Function Calculator
 function Calc(form) {
 
@@ -377,4 +438,16 @@ function Calc(form) {
             return (n * factorial(n-1));
         }
     }
+
+    function chartProbabilitiesMM1(lamb, mu) {
+        var probTable = [];
+        for(i=0; i<= 10;i++) {
+            probTable[i] = rounding( (1 - (lamb/mu)) * Math.pow((lamb/mu),i))
+        }
+        for(i=0; i<= 10;i++) {
+            console.log(i + ': ' + probTable[i]);
+        }
+    }
+
+    chartProbabilitiesMM1(15,20);
 }

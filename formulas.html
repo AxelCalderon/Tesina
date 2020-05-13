@@ -157,12 +157,16 @@
             <p class="imageLabel">Single Channel, Single Phase</p>
             <img src="images/singleServerSinglePhase-01.png" class="container">
             <p style="text-align: center;">Ex: Doctor's Office</p><br>
-            <p class="imageLabel">Multiple Channel, Single Phase</p>
-            <img src="images/MultiServerSinglePhase-03.png" class="container">
-            <p style="text-align: center;">Ex: Post Office or Bank</p><br>
             <p class="imageLabel">Single Channel, Multiple Phase</p>
             <img src="images/SingleServerMultiPhase-02.png" class="container"></b>
             <p style="text-align: center;">Ex: Drive Through </p><br>
+            <p class="imageLabel">Multiple Channel, Multiline Single Phase</p>
+            <img src="images/3MM1-03.png" class="container">
+            <p style="text-align: center;">Ex: Supermarket</p><br>
+            <p class="imageLabel">Multiple Channel, Single Phase</p>
+            <img src="images/MultiServerSinglePhase-03.png" class="container">
+            <p style="text-align: center;">Ex: Post Office or Bank</p><br>
+
           </div>
         <!---------- Kendall tab --------------->
 
@@ -661,6 +665,79 @@
           
         <div class="tab-pane fade" id="v-pills-optimization" role="tabpanel" aria-labelledby="v-pills-optimization-tab">
           <h1>Optimization</h1>
+
+          <p>Once calculated the performance of a queueing system, you will notice a couple of trends in the results. 
+            Things like, queueing performances are usually non-linear, the larger the number of parallel servers, 
+            the waiting time and queue length decreases. However, by adding additional servers you also increase 
+            the cost of service. This is why it is important to do an economic analysis of your system. 
+          </p>
+          <p>Although the queueing models presented before gives you valuable information like predicting waiting times,
+             queue lengths and idle time, it doesn’t consider the cost factor. For this, management usually need to
+              calculate the value of the service they provide and the value of their customers. Being able to calculate 
+              those may present you with a good way would help you find the optimum number of servers for your system.
+          </p>
+            
+          <p>Using the examples from MM1 and MMC:</p>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">SINGLE CHANNEL</th>
+                <th scope="col">TWO CHANNEL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">P<sub>0</sub></th>
+                <td>.33</td>
+                <td>.5</td>
+              </tr>
+              <tr>
+                <th scope="row">L</th>
+                <td> 2 cars</td>
+                <td> .75 cars</td>
+              </tr>
+              <tr>
+                <th scope="row">W</th>
+                <td>60 mins</td>
+                <td>22.5 mins </td>
+              </tr>
+              <tr>
+                <th scope="row">L<sub>q</sub></th>
+                <td>1.33 cars</td>
+                <td>.083 cars</td>
+              </tr>
+              <tr>
+                <th scope="row">W<sub>q</sub></th>
+                <td>40 min</td>
+                <td> 2.5 min</td>
+              </tr>
+            </tbody>
+          </table>
+
+          The increased service has a dramatic effect on almost all characteristics, almost every measure is reduced in half and the waiting time is exponentially shorter. However, this example can be expanded to 3 or 4 more servers, to see how it would change, that way you can find a balance.
+            
+          <!-- highchart -->
+          <script src="https://code.highcharts.com/highcharts.js"></script>
+          <script src="https://code.highcharts.com/modules/exporting.js"></script>
+          <script src="https://code.highcharts.com/modules/export-data.js"></script>
+          <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+          <!-- end script for highchart-->
+
+          <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description">
+              Number in System
+            </p>
+          </figure>
+            
+            Waiting Line Tables can also help you by giving a simple and basic analysis, by providing a list of possibilities to the problem in question. It becomes unrealistic for management to calculate channel waiting lines models if a server is not readily available. Fortunately, there is a table that represents the relationship between three things: service facility utilization factor (rho), number of service channels open and the average number of customers in queue (L_q).
+            
+            **TABLE**
+            </p>
+           
+
         </div>
 
         </div>
@@ -673,6 +750,8 @@
   <script src="jquery/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+
+  <!-- MathJax Formulas Script-->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
   
