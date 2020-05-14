@@ -19,6 +19,7 @@
 
   <!-- highchart -->
   <script src="https://code.highcharts.com/highcharts.js"></script>
+
   <!-- end script for highchart-->
   
 </head>
@@ -727,7 +728,7 @@
           the waiting time is exponentially shorter. However, this example can be expanded to 3 or 4 more servers, to see how 
           it would change, that way you can find a balance.
           </p>
-          <p>Single-server probabilities of customers in the system:</p>
+          <p class="title2">Single-server probabilities of customers in the system:</p>
 
           <figure id="figure" class="highcharts-figure">
             <div id="container"></div>
@@ -753,35 +754,159 @@
           <table class="table table-sm">
             <thead>
               <tr>
-                <td colspan="5">Poisson Arrivals, Exponential Service Times</td>
+                <td colspan="6" style="text-align: center;">Poisson Arrivals, Exponential Service Times</td>
               </tr>
               <tr>
-                <td colspan="5">Number of Service Channels, M</td>
+                <td colspan="6" style="text-align: center;">Number of Service Channels, M</td>
               </tr>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">ρ</th>
+                <th scope="col">1</th>
+                <th scope="col">2</th>
+                <th scope="col">3</th>
+                <th scope="col">4</th>
+                <th scope="col">5</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="table-borderless">
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">.10</th>
+                <td>0.0111</td>
               </tr>
               <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <th scope="row">.15</th>
+                <td>.0264</td>
+                <td>.0008</td>
               </tr>
               <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <th scope="row">.20</th>
+                <td>.0500</td>
+                <td>.0020</td>
+              </tr>
+              <tr>
+                <th scope="row">.30</th>
+                <td>.1285</td>
+                <td>.0069</td>
+              </tr>
+              <tr>
+                <th scope="row">.40</th>
+                <td>.2666</td>
+                <td>.0166</td>
+              </tr>
+              <tr>
+                <th scope="row">.45</th>
+                <td>.3681</td>
+                <td>.0239</td>
+                <td>.0019</td>
+              </tr>
+              <tr>
+                <th scope="row">.50</th>
+                <td>.5000</td>
+                <td>.0333</td>
+                <td>.0030</td>
+              </tr>
+              <tr>
+                <th scope="row">.55</th>
+                <td>.6722</td>
+                <td>.0449</td>
+                <td>.0043</td>
+              </tr>
+              <tr>
+                <th scope="row">.60</th>
+                <td>.9000</td>
+                <td>.0593</td>
+                <td>.0061</td>
+              </tr>
+              <tr>
+                <th scope="row">.65</th>
+                <td>1.2071</td>
+                <td>.0767</td>
+                <td>.0084</td>
+              </tr>
+              <tr>
+                <th scope="row">.70</th>
+                <td>1.6333</td>
+                <td>.0976</td>
+                <td>.0112</td>
+              </tr>
+              <tr>
+                <th scope="row">.75</th>
+                <td>2.2500</td>
+                <td>.1227</td>
+                <td>.0147</td>
+              </tr>
+              <tr>
+                <th scope="row">.80</th>
+                <td>3.2000</td>
+                <td>.1523</td>
+                <td>.0189</td>
+              </tr>
+              <tr>
+                <th scope="row">.85</th>
+                <td>4.8166</td>
+                <td>.1873</td>
+                <td>.0239</td>
+                <td>.0031</td>
+              </tr>
+              <tr>
+                <th scope="row">.90</th>
+                <td>8.1000</td>
+                <td>.2285</td>
+                <td>.0300</td>
+                <td>.0041</td>
+              </tr>
+              <tr>
+                <th scope="row">.95</th>
+                <td>18.0500</td>
+                <td>.2767</td>
+                <td>.0371</td>
+                <td>.0053</td>
+              </tr>
+              <tr>
+                <th scope="row">1.0</th>
+                <td></td>
+                <td>.3333</td>
+                <td>.0454</td>
+                <td>.0067</td>
+              </tr>
+              <tr>
+                <th scope="row">1.2</th>
+                <td></td>
+                <td>.6748</td>
+                <td>.0904</td>
+                <td>.0158</td>
+              </tr>
+              <tr>
+                <th scope="row">1.4</th>
+                <td></td>
+                <td>1.3449</td>
+                <td>.1778</td>
+                <td>.0324</td>
+                <td>.0059</td>
+              </tr>
+              <tr>
+                <th scope="row">1.6</th>
+                <td></td>
+                <td>2.8444</td>
+                <td>.3128</td>
+                <td>.0604</td>
+                <td>.0121</td>
+              </tr>
+              <tr>
+                <th scope="row">1.8</th>
+                <td></td>
+                <td>7.6734</td>
+                <td>.5320</td>
+                <td>.1051</td>
+                <td>.0227</td>
+              </tr>
+              <tr>
+                <th scope="row">2.0</th>
+                <td></td>
+                <td></td>
+                <td>.8888</td>
+                <td>.1739</td>
+                <td>.0398</td>
               </tr>
             </tbody>
           </table>

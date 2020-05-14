@@ -121,9 +121,6 @@ function Md1ex1(form) {
 }
 
 // Calculating prob for the chart
-var nuLessons = parseFloat(document.chartForm.nuLessons.value, 10); // services
-var lambLessons = parseFloat(document.chartForm.lambLessons.value, 10); // arrivals 
-console.log("I want to see this right now" + nuLessons);
 var probTable = [];
 
 chartProbabilitiesMM1(2,3);
@@ -136,68 +133,42 @@ function chartProbabilitiesMM1(lamb, mu) {
         console.log(i + ': ' + probTable[i]);
     }
 }
-
-
-console.log("test this: "+ probTable[1]);
+var xvalue = 29.9;
 // Chart 
 $(function () {
-    var chart = new Highcharts.chart( {
-    chart: {
-      type: 'column',
-      renderTo: 'container'
-    },
-    title: {
-      text: 'Probability of Customers in System'
-    },
-      xAxis: {
-      type: 'category',
-      labels: {
-        rotation: -45,
-        style: {
-          fontSize: '13px',
-          fontFamily: 'Verdana, sans-serif'
-        }
-      }
-    },
-    yAxis: {
-      min: 0,
-      title: {
-        text: 'Probability'
-      }
-    },
-    legend: {
-      enabled: false
-    },
-    tooltip: {
-      pointFormat: 'Probability: <b>{point.y:.3f}</b>'
-    },
-    series: [{
-      name: 'Customers in System',
-      data: probTable,
-      dataLabels: {
-        enabled: true,
-        rotation: -90,
-        color: '#FFFFFF',
-        align: 'right',
-        format: '{point.y:.3f}', // three decimal
-        y: 10, // 10 pixels down from the top
-        style: {
-          fontSize: '13px',
-          fontFamily: 'Verdana, sans-serif'
-        }
-      }
-    }]
-  });
-
-  // button action
-
-  $('#ReloadButton').click(function() {
-    var nuLessons = parseFloat(document.chartForm.nuLessons.value, 10); // services
-    var lambLessons = parseFloat(document.chartForm.lambLessons.value, 10); // arrivals 
-    chartProbabilitiesMM1(lambLessons,nuLessons);
-      chart.series[0].setData([probTable[0],probTable[1],probTable[2],probTable[3],probTable[4],probTable[5],
-        probTable[6],probTable[7],probTable[8],probTable[9],probTable[10], probTable[11]]);
-  });
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'column'
+        },
+        title: {
+      		text: 'Probability of Customers in System'
+    		},
+        yAxis: {
+      		min: 0,
+      		title: {
+        		text: 'Probability'
+      		}
+    		},
+        tooltip: {
+      		pointFormat: 'Probability: <b>{point.y:.3f}</b>'
+    		},
+        
+        series: [{
+            name: 'Customers in System',
+            data: [probTable[0], probTable[1],probTable[2], probTable[3], probTable[4], probTable[5], 
+            probTable[6], probTable[7], probTable[8], probTable[9], probTable[10]]        
+        }]
+    });
+    
+    // The button action
+    $('#ReloadButton').click(function() {
+        var nuLessons = parseFloat(document.chartForm.nuLessons.value, 10); // services
+        var lambLessons = parseFloat(document.chartForm.lambLessons.value, 10); // arrivals 
+        chartProbabilitiesMM1(lambLessons,nuLessons);
+        chart.series[0].setData([probTable[0], probTable[1],probTable[2], probTable[3], probTable[4], probTable[5],
+             probTable[6], probTable[7], probTable[8], probTable[9], probTable[10]] );
+    });
 });
 
 
