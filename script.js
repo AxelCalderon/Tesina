@@ -120,12 +120,34 @@ function Md1ex1(form) {
     }
 }
 
-Highcharts.chart('container', {
+// Calculating prob for the chart
+var nuLessons = parseFloat(document.chartForm.nuLessons.value, 10); // services
+var lambLessons = parseFloat(document.chartForm.lambLessons.value, 10); // arrivals 
+console.log("I want to see this right now" + nuLessons);
+var probTable = [];
+
+chartProbabilitiesMM1(2,3);
+
+function chartProbabilitiesMM1(lamb, mu) {
+    for(i=0; i<= 10;i++) {
+        probTable[i] = rounding( (1 - (lamb/mu)) * Math.pow((lamb/mu),i))
+    }
+    for(i=0; i<= 10;i++) {
+        console.log(i + ': ' + probTable[i]);
+    }
+}
+
+
+console.log("test this: "+ probTable[1]);
+// Chart 
+$(function () {
+    var chart = new Highcharts.chart( {
     chart: {
-      type: 'column'
+      type: 'column',
+      renderTo: 'container'
     },
     title: {
-      text: 'Probability of Number in System'
+      text: 'Probability of Customers in System'
     },
       xAxis: {
       type: 'category',
@@ -150,22 +172,8 @@ Highcharts.chart('container', {
       pointFormat: 'Probability: <b>{point.y:.3f}</b>'
     },
     series: [{
-      name: 'Number in System',
-      data: [
-        ['0', .25],
-        ['1', .1875],
-        ['2', .1406],
-        ['3', .1055],
-        ['4', .0791],
-        ['5', .0593],
-        ['6', .0445],
-        ['7', .0334],
-        ['8', .025],
-        ['9', .0188],
-        ['10', .0141],
-        ['11', .0106],
-        ['12', .0079]
-      ],
+      name: 'Customers in System',
+      data: probTable,
       dataLabels: {
         enabled: true,
         rotation: -90,
@@ -180,6 +188,18 @@ Highcharts.chart('container', {
       }
     }]
   });
+
+  // button action
+
+  $('#ReloadButton').click(function() {
+    var nuLessons = parseFloat(document.chartForm.nuLessons.value, 10); // services
+    var lambLessons = parseFloat(document.chartForm.lambLessons.value, 10); // arrivals 
+    chartProbabilitiesMM1(lambLessons,nuLessons);
+      chart.series[0].setData([probTable[0],probTable[1],probTable[2],probTable[3],probTable[4],probTable[5],
+        probTable[6],probTable[7],probTable[8],probTable[9],probTable[10], probTable[11]]);
+  });
+});
+
 
 // Function Calculator
 function Calc(form) {
@@ -419,6 +439,9 @@ function Calc(form) {
     // TEST STUFFF PLEASE REMOVE LATER
     unitConverter();
 
+    
+    }
+
     // Rounding to 4 decimal points 
     function rounding(n){
         r = Math.round(n * 10000) / 10000
@@ -437,17 +460,5 @@ function Calc(form) {
         else {
             return (n * factorial(n-1));
         }
-    }
 
-    function chartProbabilitiesMM1(lamb, mu) {
-        var probTable = [];
-        for(i=0; i<= 10;i++) {
-            probTable[i] = rounding( (1 - (lamb/mu)) * Math.pow((lamb/mu),i))
-        }
-        for(i=0; i<= 10;i++) {
-            console.log(i + ': ' + probTable[i]);
-        }
-    }
-
-    chartProbabilitiesMM1(15,20);
 }

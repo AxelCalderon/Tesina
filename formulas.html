@@ -14,6 +14,12 @@
 
     <!-- <link href="css/normalize.css" rel="stylesheet"> -->
   <link href="style.css" rel="stylesheet">
+
+  <script src="jquery/jquery.min.js"></script>
+
+  <!-- highchart -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <!-- end script for highchart-->
   
 </head>
 
@@ -64,6 +70,7 @@
         <a class="nav-item nav-link" id="nav-mm1-tab" data-toggle="tab" href="#v-pills-mm1" role="tab" aria-controls="nav-mm1" aria-selected="false">M/M/1 Queue</a>
         <a class="nav-item nav-link" id="nav-mmc-tab" data-toggle="tab" href="#v-pills-mmc" role="tab" aria-controls="nav-mmc" aria-selected="false">M/M/C Queue</a>
         <a class="nav-item nav-link" id="nav-md1-tab" data-toggle="tab" href="#v-pills-md1" role="tab" aria-controls="nav-md1" aria-selected="false">M/D/1 Queue</a>
+        <a class="nav-item nav-link" id="nav-optimization-tab" data-toggle="tab" href="#v-pills-optimization" role="tab" aria-controls="nav-optimization" aria-selected="false">Optimization</a>
       </div>
     </nav>
 
@@ -716,27 +723,68 @@
             </tbody>
           </table>
 
-          The increased service has a dramatic effect on almost all characteristics, almost every measure is reduced in half and the waiting time is exponentially shorter. However, this example can be expanded to 3 or 4 more servers, to see how it would change, that way you can find a balance.
-            
-          <!-- highchart -->
-          <script src="https://code.highcharts.com/highcharts.js"></script>
-          <script src="https://code.highcharts.com/modules/exporting.js"></script>
-          <script src="https://code.highcharts.com/modules/export-data.js"></script>
-          <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-          <!-- end script for highchart-->
+          <p> The increased service has a dramatic effect on almost all characteristics, almost every measure is reduced in half and
+          the waiting time is exponentially shorter. However, this example can be expanded to 3 or 4 more servers, to see how 
+          it would change, that way you can find a balance.
+          </p>
+          <p>Single-server probabilities of customers in the system:</p>
 
-          <figure class="highcharts-figure">
+          <figure id="figure" class="highcharts-figure">
             <div id="container"></div>
-            <p class="highcharts-description">
-              Number in System
-            </p>
           </figure>
-            
-            Waiting Line Tables can also help you by giving a simple and basic analysis, by providing a list of possibilities to the problem in question. It becomes unrealistic for management to calculate channel waiting lines models if a server is not readily available. Fortunately, there is a table that represents the relationship between three things: service facility utilization factor (rho), number of service channels open and the average number of customers in queue (L_q).
-            
-            **TABLE**
-            </p>
-           
+
+          <p>Change the Values of Arrival and Service Rate to get update table:</p>
+          <form name="chartForm">
+            <h5><b>λ</b> Arrival Rate / Hour</h5>
+            <input type="text" name="lamb" id="lambLessons" class="form-control col-sm-2" placeholder="2">
+            <h5><b>μ</b> Service Rate / Hour</h5>
+            <input type="text" name="nu" id="nuLessons" class="form-control col-sm-2" placeholder="3">
+          </form></br>
+          <button type="button" class="btn btn-primary" id="ReloadButton">Reload</button>
+          
+          <p class="title2">Waiting Line Table</p>
+          <p> Waiting Line Tables can also help you by giving a simple and basic analysis, by providing a list of
+            possibilities to the problem in question. It becomes unrealistic for management to calculate channel 
+            waiting lines models if a server is not readily available. Fortunately, there is a table that represents
+            the relationship between three things: service facility utilization factor ρ, number of service 
+            channels open and the average number of customers in queue L<sub>q</sub>.
+          </p>
+
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <td colspan="5">Poisson Arrivals, Exponential Service Times</td>
+              </tr>
+              <tr>
+                <td colspan="5">Number of Service Channels, M</td>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
 
         </div>
 
@@ -747,7 +795,7 @@
 
 
   <!-- Bootstrap core JavaScript -->
-  <script src="jquery/jquery.min.js"></script>
+
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 
