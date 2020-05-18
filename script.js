@@ -1,3 +1,22 @@
+// calculator buttons
+var calcButton = document.getElementById("calcButton");
+
+// Input form tabs
+var formTab = document.getElementById("formTab");
+var CTile = document.getElementById("CTile");
+
+// Result Outputs
+var resultL = document.getElementById("resultL");
+var resultLq = document.getElementById("resultLq");
+var resultW = document.getElementById("resultW");
+var resultWq = document.getElementById("resultWq");
+var resultRho = document.getElementById("resultRho");
+var resultPro = document.getElementById("resultProb");
+
+// Modal / Error Message
+
+var modal = document.getElementById("modalText");
+
 // Model selector buttons
 $('#selector button').click(function() {
     $(this).addClass('active').siblings().removeClass('active');
@@ -23,36 +42,12 @@ $('#selector button').click(function() {
     return model;
 });
 
-
-// calculator buttons
-var calcButton = document.getElementById("calcButton");
-
-var formTab = document.getElementById("formTab");
-var CTile = document.getElementById("CTile");
-var CTileText = document.getElementById("CTileText");
-
-
-// Result Outputs
-
-var resultL = document.getElementById("resultL");
-var resultLq = document.getElementById("resultLq");
-var resultW = document.getElementById("resultW");
-var resultWq = document.getElementById("resultWq");
-var resultRho = document.getElementById("resultRho");
-var resultPro = document.getElementById("resultProb");
-
-// Modal / Error Message
-
-var modal = document.getElementById("modalText");
-
-//Display Answers
-function displayAns(elem) {
-    
-    x = elem.id;
-    document.getElementById(x).style.display = "block";
-}
-
 // Lesson Page excercises. 
+
+/*
+* @param {form} answers submited by user
+* Check the results of the form submited
+*/
 function MM1ex0(form) {
     var ans = [];
     var result = [0.9,1.5,0.3,0.5,60]; //answers for MM1ex0
@@ -69,6 +64,10 @@ function MM1ex0(form) {
     }
 }
 
+/*
+* @param {form} answers submited by user
+* Check the results of the form submited
+*/
 function MMCex0(form) {
 
     var ans = [];
@@ -86,6 +85,10 @@ function MMCex0(form) {
     }
 }
 
+/*
+* @param {form} answers submited by user
+* Check the results of the form submited
+*/
 function Md1ex0(form) {
 
     var ans = [];
@@ -103,6 +106,10 @@ function Md1ex0(form) {
     }
 }
 
+/*
+* @param {form} answers submited by user
+* Check the results of the form submited
+*/
 function Md1ex1(form) {
 
     var ans = [];
@@ -120,11 +127,18 @@ function Md1ex1(form) {
     }
 }
 
-// Calculating prob for the chart
-var probTable = [];
+// Calculating prob for the chart in lessons page
 
-chartProbabilitiesMM1(2,3);
+var probTable = []; //array for the chart
 
+// Default probabilities for the chart. 
+chartProbabilitiesMM1(2,3); // needs to be filled to display chart
+
+/*
+* @param {lamb} Receives arrival rate
+* @param {mu} Receives service rate
+* Functions that gets lamb and mu as imput, to calculate the probabilities for the chart. 
+*/
 function chartProbabilitiesMM1(lamb, mu) {
     for(i=0; i<= 10;i++) {
         probTable[i] = rounding( (1 - (lamb/mu)) * Math.pow((lamb/mu),i))
@@ -133,8 +147,8 @@ function chartProbabilitiesMM1(lamb, mu) {
         console.log(i + ': ' + probTable[i]);
     }
 }
-var xvalue = 29.9;
-// Chart 
+
+// Chart function 
 $(function () {
     var chart = new Highcharts.Chart({
         chart: {
@@ -172,23 +186,72 @@ $(function () {
 });
 
 
-// Function Calculator
+/*
+* @param {lamb} Receives form which includes lambda, mu and server numbers
+* On click Funcion that calculates the performance measures of the designated model
+*/
 function Calc(form) {
 
-    var c = parseInt(document.form.C.value,10); // number of servers
-    if (c!== c) {
-        c = 0;
+    var c = parseInt(document.form.C.value,10); // user input of number of servers
+    if (c!== c) { 
+        c = 0; // for MM1 and MD1 models, to not receive an error when trying to calculate
     }
     var k = 0; // queue capacity
-    var mu = parseFloat(document.form.nu.value, 10); // services
-    var lamb = parseFloat(document.form.lamb.value, 10); // arrivals 
+    var mu = parseFloat(document.form.nu.value, 10); // user input of service rate
+    var lamb = parseFloat(document.form.lamb.value, 10); // user input of arrival rate 
     var r = Math.round(r) // rounding number
+    var sigma = 1; // for MG1
 
+   // MM1 object and its properties
+    var mm1 =  {
+        model: mm1,
+        w: rounding(-(1/(lamb - mu))),
+        wq: rounding(lamb/(mu * (mu - lamb))),
+        l: rounding(lamb/(mu - lamb)),
+        lq: rounding(((Math.pow(lamb,2))/(mu * (mu - lamb)))),
+        prob: rounding(res = 1 - (lamb/mu)),
+        rho: rounding(lamb/mu)
+    };
 
-    
+    // MMC object and its properties
+    var mmc = {
+        model: mmc,
+        w: wMMK(),
+        wq: wqMMK(),
+        l: lMMK(),
+        lq: lqMMK(),
+        prob: probMMK(c),
+        rho: rounding(lamb/(c * mu))
+    };
+
+    // MD1 object and its properties
+    var md1 = {
+        model: md1,
+        w: wMD1(),
+        wq: wqMD1(),
+        l: lMD1(),
+        lq: lqMD1(),
+        prob: probMD1(),
+        rho: rounding(lamb/mu)
+    };
+
+    // MG1 object and its properties
+    var mg1 = {
+        model: mg1,
+        w: wMG1(),
+        wq: wqMG1(),
+        l: lMG1(),
+        lq: lqMG1(),
+        prob: probMG1(),
+        rho: rounding(lamb/mu)       
+    }
+
+    console.log("This is the model used right now: "+ model) //displays in console what model is being used.
+
     // input for probabilites
     let input = document.querySelector('input[target]');
 
+    // Event that receives input from the user to recalculate the probabilities for specific imput.
     input.addEventListener('keyup', (e) => {
         if(e.keyCode === 13) {
             n = e.target.value; // number of customers 
@@ -212,43 +275,13 @@ function Calc(form) {
                     }
                     resultPro.innerHTML = rounding(x);
                     break;
-            }
+                default:
+                    break;
+            } // can't recalculate MD1 or MG1
         }
     })
     
-    var mm1 =  {
-        model: mm1,
-        w: rounding(-(1/(lamb - mu))),
-        wq: rounding(lamb/(mu * (mu - lamb))),
-        l: rounding(lamb/(mu - lamb)),
-        lq: rounding(((Math.pow(lamb,2))/(mu * (mu - lamb)))),
-        prob: rounding(res = 1 - (lamb/mu)),
-        rho: rounding(lamb/mu)
-    };
-
-    var mmc = {
-        model: mmc,
-        w: wMMK(),
-        wq: wqMMK(),
-        l: lMMK(),
-        lq: lqMMK(),
-        prob: probMMK(c),
-        rho: rounding(lamb/(c * mu))
-    };
-
-    var md1 = {
-        model: md1,
-        w: wMD1(),
-        wq: wqMD1(),
-        l: lMD1(),
-        lq: lqMD1(),
-        prob: probMD1(),
-        rho: rounding(lamb/mu)
-    };
-
-    console.log("This is the model used right now: "+ model)
-
-    // // Validate the form 
+    // Form Validations
     if (isNaN(lamb)) {
         $('#Modal').modal(focus);
         modal.innerHTML = "Please enter correct value for λ";
@@ -377,6 +410,36 @@ function Calc(form) {
         return rounding(res);
     }
 
+    // Calcuates probabilites MG1
+    function probMG1() {
+        res = 1 - (lamb/mu)
+        return rounding(res);   
+    }
+
+    // Calculates L MG1
+    function lMG1() {
+        res = (Math.pow(sigma * lamb,2) + (Math.pow(lamb/mu,2)))/(2 * (1 - (lamb/mu))) + lamb/mu;
+        return rounding(res);
+    }
+
+    // Calculates Lq MG1 
+    function lqMG1() {
+        res = (Math.pow(sigma * lamb,2) + (Math.pow(lamb/mu,2)))/(2 * (1 - (lamb/mu)));
+        return rounding(res);
+    }
+
+    // Calculates w MG1 
+    function wMG1() {
+        res = (lamb * Math.pow(sigma,2) + lamb/Math.pow(mu,2))/(2 * (1 - (lamb/mu))) + 1/mu;
+        return rounding(res);
+    }
+
+    // Calculates Wq MG1 
+    function wqMG1() {
+        res = (lamb * Math.pow(sigma,2) + lamb/Math.pow(mu,2))/(2 * (1 - (lamb/mu)))
+        return rounding(res);
+    }
+
     // Utilities
 
     // Time Converter
@@ -398,7 +461,7 @@ function Calc(form) {
         perHours[2] = hours * 3600; // per seconds
         perHours[3] = Math.round(hours / 24 * 100) / 100; // per days
 
-        // TEST STUFF PLEASE REMOVE LATER
+        // TEST STUFF
         var i;
         for(i=0; i < perHours.length;i++) {
             console.log(perHours[i])
@@ -407,11 +470,9 @@ function Calc(form) {
         return console.log(perHours[option]);
     }
 
-    // TEST STUFFF PLEASE REMOVE LATER
+    // TEST STUFFF
     unitConverter();
-
-    
-    }
+}
 
     // Rounding to 4 decimal points 
     function rounding(n){
@@ -431,5 +492,4 @@ function Calc(form) {
         else {
             return (n * factorial(n-1));
         }
-
 }
