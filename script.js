@@ -42,6 +42,13 @@ $('#selector button').click(function() {
     return model;
 });
 
+//Display Answers
+function displayAns(elem) {
+
+    x = elem.id;
+    document.getElementById(x).style.display = "block";
+}
+
 // Lesson Page excercises. 
 
 /*
@@ -492,4 +499,4 @@ function Calc(form) {
         else {
             return (n * factorial(n-1));
         }
-}
+    }
